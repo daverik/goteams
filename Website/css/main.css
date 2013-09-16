@@ -28,6 +28,19 @@ h1 {
 	font-size: 4em;
 }
 
+h2 {
+}
+
+#topnav {
+	border-style:none;
+}
+
+#startbutton {
+	background-color:#3498db;
+	color:#fff;
+	border-style:none;
+}
+
 #maincontent {
 	color:#2c3e50;
 }
