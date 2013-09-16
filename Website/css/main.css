@@ -23,6 +23,20 @@ html {
     line-height: 1.4;
 }
 
+h1 {
+	color:#3498db;
+	font-size: 4em;
+}
+
+#maincontent {
+	color:#2c3e50;
+}
+
+#sidecontent {
+	color:#2c3e50;
+	background:#ecf0f1;
+}
+
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
