@@ -16,8 +16,8 @@
 		<link href="../../css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet/less" type="text/css" href="css/main.less">
-		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="/js/vendor/less.min.js" type="text/javascript"></script>
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
 		<!--[if lt IE 7]>
@@ -52,30 +52,44 @@
 							<a href="#">Leagues</a>
 						</li>
 					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+					</form>
+					<ul class="nav navbar-nav lag-nav nav-sign-up">
+						<li class="nav-item">
+							<a id="logIn" href="#">Log in</a>
+						</li>
+						<li id="log-out-item" class="nav-item">
+							<a id="log-out-button" href="#">Log out</a>
+						</li>
+						<li id="sign-up-item">
+							<a href="#">Sign up</a>
+						</li>
+					</ul>
+					<div id="login-dropdown">
+						<input class="form-control" placeholder="User name" type="text" name="fname">
+						<input class="form-control" placeholder="Password" type="text" name="fpassword">
+						<button id="log-in-button" class="btn btn-primary">
+							Log in
+						</button>
+					</div>
 				</div><!-- /.navbar-collapse -->
 			</nav>
-			<div class="row">
-				<div class="col-md-3 left-column">
-					<div class="row my-teams">
-						<h2>My teams</h2>
-						<ul class="my-teams-list">
-							<li class="my-teams-list-item">
-								IxD
-							</li>
-						</ul>
+			<div id="page-container" class="row">
+				<div class="row banner">
+					<div class="col-md-6">
+						<h1 id="title">Welcome to Lagvarvet!</h1>
 					</div>
-					<div class="row my-leagues-container">
-						<h2>My leagues</h2>
-						<ul class="my-leagues-list">
-
-						</ul>
+					<div class="col-md-6">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Curabitur porttitor libero risus, in adipiscing libero venenatis accumsan.
+							Morbi vestibulum quis est interdum vestibulum.
+							Ut vulputate ligula est, ut sagittis urna placerat vitae. Nullam auctor vitae dolor et commodo.
+						</p>
 					</div>
-				</div>
-				<div class="col-md-5">
-					<h2>Map</h2>
-				</div>
-				<div class="col-md-4">
-					<h2>News</h2>
 				</div>
 			</div>
 		</div>
@@ -85,6 +99,35 @@
 		</script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
+
+		<script>
+			$('#logIn').click(function() {
+				$("#login-dropdown").slideToggle();
+			});
+
+			$('#log-in-button').click(function() {
+				$('#page-container').load('pages/loggedin.html');
+				$("#login-dropdown").slideToggle();
+				$('#log-out-item').toggle();
+				$('#logIn').toggle();
+				$('#sign-up-item').toggle();
+			});
+
+			$('#log-out-button').click(function() {
+				window.location = 'index.html';
+			});
+
+			$(document).mouseup(function(e) {
+				var container = $("#login-dropdown");
+
+				if (!container.is(e.target)// if the target of the click isn't the container...
+				&& container.has(e.target).length === 0)// ... nor a descendant of the container
+				{
+					container.hide();
+				}
+			});
+
+		</script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
