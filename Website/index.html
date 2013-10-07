@@ -13,11 +13,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
 		<link href="../../css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet/less" type="text/css" href="css/main.less">
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="/js/vendor/less.min.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<!--[if lt IE 7]>
@@ -25,56 +25,58 @@
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<div class="container">
-			
-			<nav id="topnav"  class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Go:Teams</a>
-  </div>
+		<div class="my-fluid-container">
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Hem</a></li>
-      <li><a href="#">Om</a></li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-			<div class="page-header">
-				<h1>Go:Teams!</h1>
-				<p class="lead">
-					Tävla i Göteborgsvarvet som ett lag.
-					<button type="button" id="startbutton" class="btn btn-default">Börja här</button>
-				</p>
-			</div>
-			<div class="row">
-				<div class="col-md-8
-				">
-					<h2>Välkommen</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-						Donec condimentum ante nulla, id tincidunt dolor consequat et. 
-						Proin vehicula ac neque ut sagittis. Cras pulvinar sed justo ut pharetra. 
-						Suspendisse semper quam felis, nec lobortis arcu interdum eu. 
-					</p>
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Lagvarvet</a>
 				</div>
-				<div class="col-md-4" id="sidecontent">
-					<h2>Meny</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-						Donec condimentum ante nulla, id tincidunt dolor consequat et. 
-						Proin vehicula ac neque ut sagittis. Cras pulvinar sed justo ut pharetra. 
-						Suspendisse semper quam felis, nec lobortis arcu interdum eu. 
-					</p>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Map</a>
+						</li>
+						<li>
+							<a href="#">Teams</a>
+						</li>
+						<li>
+							<a href="#">Leagues</a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+			<div class="row">
+				<div class="col-md-3 left-column">
+					<div class="row my-teams">
+						<h2>My teams</h2>
+						<ul class="my-teams-list">
+							<li class="my-teams-list-item">
+								IxD
+							</li>
+						</ul>
 					</div>
+					<div class="row my-leagues-container">
+						<h2>My leagues</h2>
+						<ul class="my-leagues-list">
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<h2>Map</h2>
+				</div>
+				<div class="col-md-4">
+					<h2>News</h2>
+				</div>
 			</div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
