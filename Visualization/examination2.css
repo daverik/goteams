@@ -1,0 +1,121 @@
+/*
+----------------------------------------------------------------------------------
+
+Umeå universitet
+Institutionen för informatik
+Kurs: CSS-baserad webbdesign
+
+----------------------------------------------------------------------------------
+*//*
+----------------------------------------------------------------------------------
+
+Namn: Viktor Swantesson
+
+----------------------------------------------------------------------------------
+*/
+
+/* Skriv dina selektorer och deklarationer nedanför denna kommentar */
+
+body {
+  background-color: #E5E5E5;
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  color: #6C6C6C;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+/*inte helt klar*/
+ul {
+  border-style: dotted;
+  border-width: 1px;
+  margin: 1em;
+  padding: 1em;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+li{
+  margin-left: 1em;
+}
+
+#container {
+  background-color: #FFFFFF;
+  width: 800px;  
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  margin: 0 auto;
+}
+
+#header {
+  padding: 10px;
+  margin: 3px 3px 20px 3px;
+  border-style: dotted;
+  border-width: 2px;
+  border-color: #999999;
+  text-align: right;
+}
+
+#header h1 {
+  color: #FFAA01;
+}
+
+#content {
+  padding: 20px;
+}
+
+p {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #666666;
+  width: 500px;
+  margin: 0 auto;
+}
+
+td {
+  padding: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  width: 100px;
+}
+
+thead {
+  color: #FF0;
+  font-weight: bold;
+  background-color: #000000;
+  text-align: center;
+}
+
+tr.even_row {
+  background-color: #FFFFAA;
+}
+
+td.number {
+  text-align: right;
+}
+
+#footer {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #999999;
+  margin: 3px;
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: center;
+}
+
+#footer a {
+  color: #1292FF;
+}
