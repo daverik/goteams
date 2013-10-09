@@ -3,7 +3,7 @@ var a;
 
 function test ()
 {
-	d3.select("body").append("p").text("New paragraph!");
+	//d3.select("body").append("p").text("New paragraph!");
 	
 	
 	//Lägga till en bild på sidan
