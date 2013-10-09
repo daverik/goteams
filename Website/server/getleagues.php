@@ -1,3 +1,3 @@
 <?php
-	echo '{ "leagues": ["IxD", "Volvo"] }';
+	echo '{ "leagues": ["Chalmers-ligan", "Företags-ligan"] }';
 ?>

@@ -91,7 +91,7 @@ function loadLeagues() {
 		success : function(data, textStatus, jqXHR) {
 			var leagues = $.parseJSON(data).leagues;
 			for (var i = 0; i < leagues.length; i++) {
-				$("#my-leagues").append("<li class='my-leagues-list'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
+				$("#my-leagues").append("<li class='my-leagues-list-item'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
 
 				$('.leagueLink').click(function() {
 					loadLeaguePage($(this).text());
@@ -105,8 +105,9 @@ function loadTeamPage(team) {
 
 	if (loggedIn) {
 		$("#inner-container").load('pages/teams.html', function() {
-			if (team)
-				$(".team-header").html("<h2>" + team + "</h2>");
+			if (team) {
+				$(".team-header").html("<h2>" + team + "</h2>");	
+			}
 		});
 		removeActiveNavClasses();
 		$("#nav-teams").addClass("active");
@@ -116,7 +117,7 @@ function loadTeamPage(team) {
 function loadLeaguePage(league) {
 	if (loggedIn) {
 		$("#inner-container").load('pages/leagues.html', function() {
-			if (league)
+			if (league) 
 				$(".league-header").html("<h2>" + league + "</h2>");
 		});
 		removeActiveNavClasses();
