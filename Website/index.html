@@ -69,7 +69,7 @@
 						</li>
 					</ul>
 					<div id="login-dropdown">
-						<input class="form-control" placeholder="User name" type="text" name="fname">
+						<input id="username" class="form-control" placeholder="User name" type="text" name="fname">
 						<input class="form-control" placeholder="Password" type="password" name="fpassword">
 						<button id="log-in-button" class="btn btn-primary">
 							Log in
@@ -139,6 +139,30 @@
 			});
 
 			$('#log-in-button').click(function() {
+
+				var formData = {
+					name : $('#username').val()
+				};
+				//Array
+
+				$.ajax({
+					url : "server/login.php",
+					type : "POST",
+					data : formData,
+					success : function(data, textStatus, jqXHR) {
+						var msg = $.parseJSON(data);
+						if (msg.loginSuccess) {
+							login();
+						}
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+
+					}
+				});
+
+			});
+
+			function login() {
 				$('#page-container').load('pages/loggedin.html', function() {
 					$("#inner-container").load('pages/map.html');
 					loggedIn = true;
@@ -147,7 +171,8 @@
 				$('#log-out-item').toggle();
 				$('#logIn').toggle();
 				$('#sign-up-item').toggle();
-			});
+			}
+
 
 			$('#log-out-button').click(function() {
 				loggedIn = false;
@@ -163,7 +188,6 @@
 					container.hide();
 				}
 			});
-
 		</script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
