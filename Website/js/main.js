@@ -61,43 +61,44 @@ function login() {
 	$('#logIn').toggle();
 	$('#sign-up-item').toggle();
 
+	loadLeagues();
+	loadTeams();
+}
+
+function loadTeams(teams) {
+
 	$.ajax({
 		url : "server/getteams.php",
 		type : "POST",
 		success : function(data, textStatus, jqXHR) {
-			var teams = $.parseJSON(data);
-			addTeams(teams.teams);
+			var teams = $.parseJSON(data).teams;
+			for (var i = 0; i < teams.length; i++) {
+				$("#my-teams").append("<li class='my-teams-list'><a class='teamlink' href='#'>" + teams[i] + "</a></li>");
+
+				$('.teamlink').click(function() {
+					loadTeamPage($(this).text());
+				});
+			}
 		}
 	});
+}
+
+function loadLeagues() {
 
 	$.ajax({
 		url : "server/getleagues.php",
 		type : "POST",
 		success : function(data, textStatus, jqXHR) {
-			var leagues = $.parseJSON(data);
-			addLeagues(leagues.leagues);
+			var leagues = $.parseJSON(data).leagues;
+			for (var i = 0; i < leagues.length; i++) {
+				$("#my-leagues").append("<li class='my-leagues-list'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
+
+				$('.leagueLink').click(function() {
+					loadLeaguePage($(this).text());
+				});
+			}
 		}
 	});
-}
-
-function addTeams(teams) {
-	for (var i = 0; i < teams.length; i++) {
-		$("#my-teams").append("<li class='my-teams-list'><a class='teamlink' href='#'>" + teams[i] + "</a></li>");
-
-		$('.teamlink').click(function() {
-			loadTeamPage($(this).text());
-		});
-	}
-}
-
-function addLeagues(leagues) {
-	for (var i = 0; i < leagues.length; i++) {
-		$("#my-leagues").append("<li class='my-leagues-list'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
-
-		$('.leagueLink').click(function() {
-			loadLeaguePage($(this).text());
-		});
-	}
 }
 
 function loadTeamPage(team) {
@@ -137,4 +138,4 @@ $(document).mouseup(function(e) {
 	{
 		container.hide();
 	}
-}); 
+});
