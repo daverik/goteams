@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>CSS Sommaren 2011 - Examination 2</title>
+        <link rel="stylesheet" type="text/css" href="examination2.css"/>
+        <script src="vis.js"> </script>
+    </head>
+    <body>
+        <div id ="container">
+            <div id = "header">
+                <h1>En liten sida om Cascading Stylesheets</h1>
+				<button type="button" id="uniq" onclick="test()">Click Me!</button>
+            </div>
+            <div id ="content">
+                <h1>Vad är CSS?</h1>
+
+                <p>CSS är ett språk som tillåter formatering av webbsidor med avseende på:</p>
+                <ul>
+                    <li>Typsnitt</li>
+                    <li>Färg</li>
+                    <li>Positionerna av en sidas olika delar</li>
+                    <li>och mycket annat</li>
+                </ul>
+
+                <h2 id="hej">Något om färghantering i CSS</h2>
+                <p>När man skall ange färgen för ett element används vanligtvis hexadecimala siffror. Nedan följer en kort översättning av några vanliga färgvärden från dess decimala representation till motsvarande hexadecimala representation.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Färgnamn</td><td>Decimalt (R, G, B)</td><td>Hexadecimalt (RGB)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Röd</td>
+                            <td class="number">255, 0, 0</td>
+                            <td class="number">ff0000</td>
+                        </tr>
+                        <tr class ="even_row">
+                            <td>Blå</td>
+                            <td class="number">0, 0, 255</td>
+                            <td class="number">0000ff</td>
+                        </tr>
+                        <tr>
+                            <td>Svart</td>
+                            <td class="number">0, 0, 0</td>
+                            <td class="number">000000</td>
+                        </tr>
+                        <tr class ="even_row">
+                            <td>Vit</td>
+                            <td class="number">255, 255, 255</td>
+                            <td class="number">ffffff</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Vad är Lorem Ipsum?</h2>
+                <p><a href="http://www.lipsum.com">Lorem ipsum</a> är en textmassa som har använts av typsättare sedan boktryckarkonstens utvecklades. Syftet med denna text är att kunna böra bedömningar av layout utan att påverkas av textinnehållet. Denna textmassa har överlevt genom århundranden och fått en renässans i och med webbens tillkomst. Nedan följer ett exempel på denna textmassa. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur enim a urna luctus et scelerisque urna congue. Aenean laoreet enim ac odio commodo sit amet varius arcu elementum. Nam vehicula odio in lorem dictum fringilla. Cras eget lorem risus. Integer accumsan semper justo vitae imperdiet. In fringilla, odio a accumsan luctus, dui turpis volutpat tortor, eget ullamcorper ipsum velit non turpis. Aliquam venenatis, libero eu auctor dignissim, tellus lorem placerat nisi, a tempus urna odio id tellus. Morbi sit amet leo quis nunc lobortis ultrices in blandit turpis. Mauris mattis, arcu id gravida eleifend, purus nibh posuere dolor, vitae aliquam lacus ligula ac ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis nec facilisis ligula. Phasellus metus velit, ultricies vel pellentesque ac, lacinia ac turpis. Aliquam scelerisque mauris at metus tempor et facilisis enim aliquam. Cras volutpat justo ut tellus eleifend nec mollis ipsum porttitor.</p>
+            </div>
+            <div id ="footer">
+                <p>Validator för <a href ="http://jigsaw.w3.org/css-validator/">CSS</a></p>
+            </div>
+        </div>
+    </body>
+</html>
