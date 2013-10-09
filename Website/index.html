@@ -42,14 +42,14 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav lag-nav">
-						<li class="active">
-							<a id="lag-nav" href="#">Map</a>
+						<li id="nav-map" class="active">
+							<a id="nav-map-link" href="#">Map</a>
 						</li>
-						<li>
-							<a href="#">Teams</a>
+						<li id="nav-teams">
+							<a id="nav-teams-link" href="#">Teams</a>
 						</li>
-						<li>
-							<a href="#">Leagues</a>
+						<li id="nav-leagues">
+							<a id="nav-leagues-link" href="#">Leagues</a>
 						</li>
 					</ul>
 					<form class="navbar-form navbar-left" role="search">
@@ -61,7 +61,7 @@
 						<li class="nav-item">
 							<a id="logIn" href="#">Log in</a>
 						</li>
-						<li id="log-out-item" class="nav-item">
+						<li id="log-out-item">
 							<a id="log-out-button" href="#">Log out</a>
 						</li>
 						<li id="sign-up-item">
@@ -70,7 +70,7 @@
 					</ul>
 					<div id="login-dropdown">
 						<input class="form-control" placeholder="User name" type="text" name="fname">
-						<input class="form-control" placeholder="Password" type="text" name="fpassword">
+						<input class="form-control" placeholder="Password" type="password" name="fpassword">
 						<button id="log-in-button" class="btn btn-primary">
 							Log in
 						</button>
@@ -101,12 +101,48 @@
 		<script src="js/main.js"></script>
 
 		<script>
+			var loggedIn = false;
+
 			$('#logIn').click(function() {
 				$("#login-dropdown").slideToggle();
 			});
 
+			function removeActiveNavClasses() {
+				$("#nav-map").removeClass("active");
+				$("#nav-teams").removeClass("active");
+				$("#nav-leagues").removeClass("active");
+			}
+
+
+			$('#nav-map-link').click(function() {
+				if (loggedIn) {
+					$("#inner-container").load('pages/map.html');
+					removeActiveNavClasses();
+					$("#nav-map").addClass("active");
+				}
+			});
+
+			$('#nav-teams-link').click(function() {
+				if (loggedIn) {
+					$("#inner-container").load('pages/teams.html');
+					removeActiveNavClasses();
+					$("#nav-teams").addClass("active");
+				}
+			});
+
+			$('#nav-leagues-link').click(function() {
+				if (loggedIn) {
+					$("#inner-container").load('pages/leagues.html');
+					removeActiveNavClasses();
+					$("#nav-leagues").addClass("active");
+				}
+			});
+
 			$('#log-in-button').click(function() {
-				$('#page-container').load('pages/loggedin.html');
+				$('#page-container').load('pages/loggedin.html', function() {
+					$("#inner-container").load('pages/map.html');
+					loggedIn = true;
+				});
 				$("#login-dropdown").slideToggle();
 				$('#log-out-item').toggle();
 				$('#logIn').toggle();
@@ -114,6 +150,7 @@
 			});
 
 			$('#log-out-button').click(function() {
+				loggedIn = false;
 				window.location = 'index.html';
 			});
 

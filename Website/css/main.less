@@ -26,6 +26,10 @@
 @nav-text-color:#000;
 @nav-text-active-color:#fff;
 
+@map-color:#3498db;
+@teams-color:#f1c40f;
+@leagues-color:#e74c3c;
+
 html,
 button,
 input,
@@ -36,6 +40,11 @@ textarea {
 
 * {
 	color:@text-color;
+}
+
+/*Remove ugly firefox dotted border*/
+a:active,a:focus {
+	outline: none;
 }
 
 ul {
@@ -82,11 +91,45 @@ ul {
 
 
 /* active link */
-.navbar-default .navbar-nav > .active > a, 
-.navbar-default .navbar-nav > .active > a:hover, 
-.navbar-default .navbar-nav > .active > a:focus {
-	background-color:@page-color;
+.navbar-default .navbar-nav > #nav-map.active > a,  
+.navbar-default .navbar-nav > #nav-map.active > a:focus {
+	background-color:@map-color;
 	color:@nav-text-active-color;
+}
+
+.navbar-default .navbar-nav > #nav-teams.active > a,  
+.navbar-default .navbar-nav > #nav-teams.active > a:focus {
+	background-color:@teams-color;
+	color:@nav-text-active-color;
+}
+
+.navbar-default .navbar-nav > #nav-leagues.active > a,  
+.navbar-default .navbar-nav > #nav-leagues.active > a:focus {
+	background-color:@leagues-color;
+	color:@nav-text-active-color;
+}
+
+.navbar-default .navbar-nav > #nav-map.active > a:hover,
+.navbar-default .navbar-nav > #nav-teams.active > a:hover,
+.navbar-default .navbar-nav > #nav-leagues.active > a:hover
+ {
+	background-color:#fff;
+	color:#777;
+	border-left-style: solid;
+	border-right-style:solid;
+	border-width:1px;
+}
+
+.navbar-default .navbar-nav > #nav-map.active > a:hover {
+	border-color:@map-color;
+}
+
+.navbar-default .navbar-nav > #nav-teams.active > a:hover {
+	border-color:@teams-color;
+}
+
+.navbar-default .navbar-nav > #nav-leagues.active > a:hover {
+	border-color:@leagues-color;
 }
 
 .my-teams {
@@ -126,7 +169,7 @@ html {
 }
 
 .small-empty-banner {
-	background-color:@page-color;
+	background-color:@teams-color;
 	padding:0px;
 	height:4px;
 }
@@ -181,8 +224,23 @@ h2 {
 	margin-top:10px;
 }
 
-.nav-item:hover {
+.lag-nav > li:hover {
 	background-color:@main-color;
+}
+
+.lag-nav > li.active:hover {
+	background-color:#fff;
+}
+
+.lag-nav > li#nav-teams:hover {
+	background-color:@teams-color;
+}
+
+.lag-nav > li#nav-leagues:hover {
+	background-color:@leagues-color;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
 	color:#fff;
 }
 
@@ -253,7 +311,26 @@ fieldset[disabled] .form-control {
   box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
 }
 
-.inner-container {
+#inner-container {
+	
+}
+
+.map-header > h2, .team-header > h2,
+.league-header > h2 {
+	margin-top:10px;
+	color:#fff;
+}
+
+.map-header {
+	background-color:@main-color;
+}
+
+.team-header {
+	background-color:@teams-color;
+}
+
+.league-header {
+	background-color:@leagues-color;
 }
 
 /*
