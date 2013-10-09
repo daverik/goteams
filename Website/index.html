@@ -36,7 +36,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Lagvarvet</a>
+					<a class="navbar-brand" href="#">LagVarvet</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,7 +80,7 @@
 			<div id="page-container" class="row">
 				<div class="row banner">
 					<div class="col-md-6">
-						<h1 id="title">Welcome to Lagvarvet!</h1>
+						<h1 id="title">Welcome to LagVarvet!</h1>
 					</div>
 					<div class="col-md-6">
 						<p>
@@ -123,19 +123,11 @@
 			});
 
 			$('#nav-teams-link').click(function() {
-				if (loggedIn) {
-					$("#inner-container").load('pages/teams.html');
-					removeActiveNavClasses();
-					$("#nav-teams").addClass("active");
-				}
+				loadTeamPage();
 			});
 
 			$('#nav-leagues-link').click(function() {
-				if (loggedIn) {
-					$("#inner-container").load('pages/leagues.html');
-					removeActiveNavClasses();
-					$("#nav-leagues").addClass("active");
-				}
+				loadLeaguePage();
 			});
 
 			$('#log-in-button').click(function() {
@@ -171,6 +163,67 @@
 				$('#log-out-item').toggle();
 				$('#logIn').toggle();
 				$('#sign-up-item').toggle();
+
+				$.ajax({
+					url : "server/getteams.php",
+					type : "POST",
+					success : function(data, textStatus, jqXHR) {
+						var teams = $.parseJSON(data);
+						addTeams(teams.teams);
+					}
+				});
+				
+				$.ajax({
+					url : "server/getleagues.php",
+					type : "POST",
+					success : function(data, textStatus, jqXHR) {
+						var leagues = $.parseJSON(data);
+						addLeagues(leagues.leagues);
+					}
+				});
+			}
+
+			function addTeams(teams) {
+				for (var i = 0; i < teams.length; i++) {
+					$("#my-teams").append("<li class='my-teams-list'><a class='teamlink' href='#'>" + teams[i] + "</a></li>");
+
+					$('.teamlink').click(function() {
+						loadTeamPage($(this).text());
+					});
+				}
+			}
+
+			function addLeagues(leagues) {
+				for (var i = 0; i < leagues.length; i++) {
+					$("#my-leagues").append("<li class='my-leagues-list'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
+
+					$('.leagueLink').click(function() {
+						loadLeaguePage($(this).text());
+					});
+				}
+			}
+
+			function loadTeamPage(team) {
+				
+				if (loggedIn) {
+					$("#inner-container").load('pages/teams.html', function() {
+						if(team)
+							$(".team-header").html("<h2>"+team+"</h2>");
+					});
+					removeActiveNavClasses();
+					$("#nav-teams").addClass("active");
+				}
+			}
+			
+			function loadLeaguePage(league) {
+				if (loggedIn) {
+					$("#inner-container").load('pages/leagues.html', function() {
+						if(league)
+							$(".league-header").html("<h2>"+league+"</h2>");
+					});
+					removeActiveNavClasses();
+					$("#nav-leagues").addClass("active");
+				}
 			}
 
 
