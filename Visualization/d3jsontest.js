@@ -56,18 +56,15 @@ function d3json ()
 	///////////////////////////////////////////////////////////////
 	
 	var points = [
-  [480, 200],
-  [580, 400],
-  [680, 100],
-  [780, 300],
-  [180, 300],
-  [280, 100],
-  [380, 400]
+  [100, 250],
+  [700, 100],
+  [700, 550],
+  [100, 700]
 ];
 
 var svg = d3.select("body").append("svg")
-    .attr("width", 960)
-    .attr("height", 500);
+    .attr("width", 1000)
+    .attr("height", 1000);
 
 var path = svg.append("path")
     .data([points])
@@ -76,7 +73,7 @@ var path = svg.append("path")
     .attr("stroke-width", 5)
     .attr("d", d3.svg.line()
     .tension(0) // Catmull–Rom
-    .interpolate("cardinal-closed"));
+    .interpolate("cardinal"));
 
 svg.selectAll(".point")
     .data(points)
@@ -84,16 +81,29 @@ svg.selectAll(".point")
     .attr("r", 8)
     .attr("transform", function(d) { return "translate(" + d + ")"; });
 
-var circle = svg.append("circle")
+var circle1 = svg.append("circle")
     .attr("r", 13)
     .attr("fill", "red")
     .attr("transform", "translate(" + points[0] + ")");
+     
+var circle2 = svg.append("circle")
+    .attr("r", 13)
+    .attr("fill", "green")
+    .attr("transform", "translate(" + points[0] + ")");
+    
+var circle3 = svg.append("circle")
+    .attr("r", 13)
+    .attr("fill", "blue")
+    .attr("transform", "translate(" + points[0] + ")");
 
-transition();
+transition(circle1, 10000);
+transition(circle2, 9000);
+transition(circle3, 9500);
+setTimeout(2000);
 
-function transition() {
+function transition(circle, time) {
   circle.transition()
-      .duration(10000)
+      .duration(time)
       .attrTween("transform", translateAlong(path.node()))
       .each("end", transition);
 }
