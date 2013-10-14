@@ -95,7 +95,7 @@ function d3json ()
 	
 	transition(circle1);
 	
-	//setTimeout(transition(circle2), 1000);
+	setTimeout(transition(circle2), 1000);
 	
 	function transition(circle) {
 	  circle.transition()
