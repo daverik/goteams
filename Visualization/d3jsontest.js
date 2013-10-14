@@ -2,14 +2,10 @@ d3json();
 
 function d3json ()
 {
-	
-	
-	
 	var canvas = d3.select("body")
 		.append("svg")
 		.attr("width", 1000)
 		.attr("height", 1000);
-
 
 	$.getJSON( "mydata.json", function( data ) {
 		for(var i = 0; i<data.bla.length; i++) {
