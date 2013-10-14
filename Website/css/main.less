@@ -30,6 +30,8 @@
 @teams-color:#f1c40f;
 @leagues-color:#e74c3c;
 
+@team-description-color:#000;
+
 html,
 button,
 input,
@@ -189,18 +191,27 @@ h1 {
 	font-size: 3em;
 }
 
+h2 {
+	margin-top:5px;
+	margin-bottom:0px;
+	color:@sub-header-color;
+}
+
+h3 {
+	color:@sub-header-color;
+	margin:0px;
+} 
+
+h2.subtle {
+	color:#ccc;
+}
+
 .line {
 	margin-top:5px;
 	margin-right:10px;
 	background-color:@sub-header-color;
 	height:5px;
 	max-width:150px;
-}
-
-h2 {
-	margin-top:5px;
-	margin-bottom:0px;
-	color:@sub-header-color;
 }
 
 .page-content {
@@ -311,10 +322,6 @@ fieldset[disabled] .form-control {
   box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
 }
 
-#inner-container {
-	
-}
-
 .map-header > h2, .team-header > h2,
 .league-header > h2 {
 	margin-top:10px;
@@ -323,10 +330,6 @@ fieldset[disabled] .form-control {
 
 .map-header {
 	background-color:@main-color;
-}
-
-.team-header {
-	background-color:@teams-color;
 }
 
 .league-header {
@@ -340,6 +343,59 @@ fieldset[disabled] .form-control {
 
 .teamlink {
 	padding-top:0px;
+}
+
+.team-members .header, .team-members .time {
+	color:@header-color;
+	background-color:#eee;
+	padding-left:10px;
+}
+
+.team-members {
+	padding:0px;
+}
+
+.team-members .members {
+	margin:0px;
+	padding:0px;
+	padding-left:10px;
+}
+
+.team-description {
+	padding:0px;
+	color:@team-description-color;
+	padding-left:10px;
+	padding-top:5px;
+	margin-bottom:10px;
+}
+
+.team-content {
+	padding:0px;
+}
+
+.team-header {
+	background-color:@teams-color;
+	padding:0px;
+}
+
+.team-header > h2 {
+	margin:10px;
+} 
+
+.team-members {
+	padding: 0px;
+	margin:0px;
+}
+
+#inner-container {
+	border-left-style:solid;
+	border-right-style:solid;
+	border-width:1px;
+	border-color:#ddd;
+}
+
+.wall .post {
+	margin-top:5px;
 }
 
 /*

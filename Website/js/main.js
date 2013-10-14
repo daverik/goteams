@@ -32,8 +32,6 @@ $('#log-in-button').click(function() {
 	var formData = {
 		name : $('#username').val()
 	};
-	//Array
-
 	$.ajax({
 		url : "server/login.php",
 		type : "POST",
@@ -74,11 +72,10 @@ function loadTeams(teams) {
 			var teams = $.parseJSON(data).teams;
 			for (var i = 0; i < teams.length; i++) {
 				$("#my-teams").append("<li class='my-teams-list'><a class='teamlink' href='#'>" + teams[i] + "</a></li>");
-
-				$('.teamlink').click(function() {
-					loadTeamPage($(this).text());
-				});
 			}
+			$('.teamlink').click(function() {
+				loadTeamPage($(this).text());
+			});
 		}
 	});
 }
@@ -106,7 +103,47 @@ function loadTeamPage(team) {
 	if (loggedIn) {
 		$("#inner-container").load('pages/teams.html', function() {
 			if (team) {
-				$(".team-header").html("<h2>" + team + "</h2>");	
+				$('.page-info').hide();
+				$(".team-header").html("<h2>" + team + "</h2>");
+				var formData = {
+					team : team
+				};
+				$.ajax({
+					url : "server/getateam.php",
+					type : "POST",
+					data : formData,
+					success : function(data, textStatus, jqXHR) {
+						data = $.parseJSON(data);
+						if (data) {
+
+							$.ajax({
+								url : "server/getteamposts.php",
+								type : "POST",
+								data : formData,
+								success : function(data, textStatus, jqXHR) {
+									data = $.parseJSON(data);
+									if (data) {
+										for (var i = 0; i < data.posts.length; i++) {
+											$('.wall').append('<div class="row"><div class="col-md-2">'
+			+'<img src="../img/default-avatar.png" alt="Avatar" width="64" height="64" class="img-circle">'
+		+'</div><div class="col-md-10"><h3>'+data.posts[i].name+'</h3>'
+			+'<p class="post">'+data.posts[i].text+'</p></div></div>');
+										}
+									}
+								}
+							});
+
+							$('.team-description').append(data.description);
+							var list = $('.team-members').find("ul");
+							if (data.members) {
+								for (var i = 0; i < data.members.length; i++) {
+									list.append("<li>" + data.members[i] + "</li>");
+								}
+							}
+							list.append("<li><a href='#'>+ Add team member</a></li>");
+						}
+					}
+				});
 			}
 		});
 		removeActiveNavClasses();
@@ -117,7 +154,7 @@ function loadTeamPage(team) {
 function loadLeaguePage(league) {
 	if (loggedIn) {
 		$("#inner-container").load('pages/leagues.html', function() {
-			if (league) 
+			if (league)
 				$(".league-header").html("<h2>" + league + "</h2>");
 		});
 		removeActiveNavClasses();
