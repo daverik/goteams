@@ -10,7 +10,8 @@
     }
 	
     $db_selected = mysql_select_db("lagvarvet", $dbcnx);
-
+	
+	// if not connected, login anyway (for testing purposes)
 	if(!$db_selected) {
 		echo '{ "loginSuccess": true }';
         exit();
