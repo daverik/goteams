@@ -27,8 +27,13 @@ $('#nav-leagues-link').click(function() {
 	loadLeaguePage();
 });
 
-$('#log-in-button').click(function() {
+$("#username").keyup(function(e) {
+	if(e.keyCode == 13) {
+		logInClick();
+	}
+});
 
+function logInClick() {
 	var formData = {
 		name : $('#username').val()
 	};
@@ -47,6 +52,10 @@ $('#log-in-button').click(function() {
 		}
 	});
 
+}
+
+$('#log-in-button').click(function() {
+	logInClick();
 });
 
 function login() {
@@ -96,6 +105,16 @@ function loadLeagues() {
 			}
 		}
 	});
+}
+
+function loadLeaguePage(league) {
+	if(loggedIn) {
+		$("#inner-container").load('pages/teams.html', function() {
+			if(league) {
+				$('.page-info').hide();
+			}
+		});
+	}
 }
 
 function loadTeamPage(team) {
