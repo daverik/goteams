@@ -8,8 +8,13 @@
         echo '{ "loginSuccess": true }';
         exit();
     }
-    mysql_select_db("lagvarvet", $dbcnx);
+	
+    $db_selected = mysql_select_db("lagvarvet", $dbcnx);
 
+	if(!$db_selected) {
+		echo '{ "loginSuccess": true }';
+        exit();
+	}
     $enteredUsername = $_POST['name'];
 
     $query = mysql_query("SELECT username FROM runner WHERE username = '$enteredUsername'");
