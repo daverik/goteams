@@ -3,6 +3,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
+	
+	<button onclick="myFunction(0)">Volvo</button>	
+	<button onclick="myFunction(1)">SAAB</button>	
+	<button onclick="myFunction(2)">GreenPeace</button>	
+	
   <canvas id="myCanvas" width="500" height="500">
   </canvas>
   <script>
@@ -11,23 +16,59 @@
     this.y = y; 
   }
   
-  var p1 = new Point(100,150);
-  var p2 = new Point(450,50);
-  
-  var canvas = document.getElementById('myCanvas');
-  var ctx = canvas.getContext('2d');
-  ctx.beginPath();
-  ctx.moveTo(p1.x,p1.y);
-  ctx.lineTo(p2.x,p2.y);
-  ctx.stroke();
-  
-  var pointsData = [{"x":50,"y":50},{"x":450,"y":50},{"x":450,"y":450},{"x":50,"y":450}]
-  
-  var points = [];
-  
-  for(var i = 0; i < pointsData.length; i++) {
-    points.push(new Point(pointsData[i].x,pointsData[i].y));
-  }
+  function myFunction(company) {
+  	if (companiesActive[company] == false) {
+  		companiesActive[company] = true;
+  	} else {companiesActive[company] = false}
+  	
+  } 
+
+
+	var points = [];
+	var canvas = document.getElementById('myCanvas');
+	var ctx = canvas.getContext('2d');
+	var circ = [];
+	var companiesActive = [];
+	
+   	$.getJSON( "random.json", function( data ) {
+		
+		console.log(data.ble[0]);
+	  	
+	  	var p1 = new Point(100,150);
+  		var p2 = new Point(450,50);
+	  		
+		  ctx.beginPath();
+		  ctx.moveTo(p1.x,p1.y);
+		  ctx.lineTo(p2.x,p2.y);
+		  ctx.stroke();
+		  
+		  var pointsData = [{"x":50,"y":50},{"x":450,"y":50},{"x":450,"y":450},{"x":50,"y":450}]
+		  
+		  for(var i = 0; i < pointsData.length; i++) {
+		    points.push(new Point(pointsData[i].x,pointsData[i].y));
+		  }
+	
+			
+		  var t = 0;
+		  
+		  for (var i = 0; i < data.ble.length; i++) {
+		  	circ[i] = new Circle(data.ble[i].time);
+		  }
+		  
+		
+		  setInterval(function() {
+		    redraw();
+		     
+		    for (var i = 0; i < circ.length; i++) {
+		  		circ[i].move(10);
+		  		if (companiesActive[data.ble[i].company] == true) {
+		  			drawObject(circ[i], data.ble[i].company);
+		  		}
+		  	}
+		  }, 10);
+	  
+	});		
+ 
   
   function Circle(endTime) {
     this.endTime = endTime;
@@ -66,41 +107,21 @@
       this.position.y = start.y + delta*(next.y-start.y);
     }
   }
- 
- 	
- 	$.getJSON( "random.json", function( data ) {
-		//for(var i = 0; i<data.length; i++) {
-			//console.log(data[i]);
-			console.log(data);
-	});
   
-  var t = 0;
-  
-  var c1 = new Circle(4000);
-  var c2 = new Circle(5000);
-  var c3 = new Circle(6000);
-  var c4 = new Circle(7000);
-  
-  setInterval(function() {
-    redraw();
-    c1.move(10);
-    c2.move(10);
-    c3.move(10);
-    c4.move(10);
-    drawObject(c1);
-    drawObject(c2);
-    drawObject(c3);
-    drawObject(c4);
-  }, 10);
   
   function redraw() {
     ctx.fillStyle="#ffffff";
     ctx.fillRect(0,0,500,500);
   }
   
-  function drawObject(obj) {
-    
-    ctx.fillStyle="#3498db";
+  function drawObject(obj, color) {
+    if (color == 0){
+    	ctx.fillStyle="blue";
+    } else if (color == 1) {
+    	ctx.fillStyle="red";
+    } else {
+    	ctx.fillStyle="green";
+    }
     
     ctx.beginPath();
     ctx.arc(obj.x(), obj.y(), 10, 0, Math.PI*2, true); 
