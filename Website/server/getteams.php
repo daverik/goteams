@@ -1,7 +1,7 @@
 <?php
 	session_start(); 
 
-	$dbcnx = @mysql_connect("localhost", "root", "");
+	$dbcnx = @mysql_connect("localhost", "root", "root");
 	mysql_query ('SET NAMES UTF8;');
     mysql_query ('SET COLLATION_CONNECTION=utf8_general_ci;');
     mysql_client_encoding($dbcnx);

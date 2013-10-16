@@ -88,6 +88,10 @@ runners.push({'circle':new Circle(5000), 'color': '#'+Math.random().toString(16)
 runners.push({'circle':new Circle(6000), 'color': '#'+Math.random().toString(16).substr(-6)});
 runners.push({'circle':new Circle(7000), 'color': '#'+Math.random().toString(16).substr(-6)});
 
+for(var i = 0; i < 40; i++) {
+  runners.push({'circle':new Circle(6000+Math.round(Math.random()*5000)), 'color': '#'+Math.random().toString(16).substr(-6)});
+}
+
 base_image = new Image();
 		base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
