@@ -19,16 +19,8 @@ $('#nav-map-link').click(function() {
 	}
 });
 
-$('#nav-teams-link').click(function() {
-	loadTeamPage();
-});
-
-$('#nav-leagues-link').click(function() {
-	loadLeaguePage();
-});
-
 $("#username").keyup(function(e) {
-	if(e.keyCode == 13) {
+	if (e.keyCode == 13) {
 		logInClick();
 	}
 });
@@ -54,8 +46,17 @@ function logInClick() {
 
 }
 
+
 $('#log-in-button').click(function() {
 	logInClick();
+});
+
+$('#nav-teams-link').click(function() {
+	loadTeamPage();
+});
+
+$('#nav-leagues-link').click(function() {
+	loadLeaguePage();
 });
 
 function login() {
@@ -98,23 +99,12 @@ function loadLeagues() {
 			var leagues = $.parseJSON(data).leagues;
 			for (var i = 0; i < leagues.length; i++) {
 				$("#my-leagues").append("<li class='my-leagues-list-item'><a class='leagueLink' href='#'>" + leagues[i] + "</a></li>");
-
-				$('.leagueLink').click(function() {
-					loadLeaguePage($(this).text());
-				});
 			}
+			$('.leagueLink').click(function() {
+				loadLeaguePage($(this).text());
+			});
 		}
 	});
-}
-
-function loadLeaguePage(league) {
-	if(loggedIn) {
-		$("#inner-container").load('pages/teams.html', function() {
-			if(league) {
-				$('.page-info').hide();
-			}
-		});
-	}
 }
 
 function loadTeamPage(team) {
@@ -143,10 +133,7 @@ function loadTeamPage(team) {
 									data = $.parseJSON(data);
 									if (data) {
 										for (var i = 0; i < data.posts.length; i++) {
-											$('.wall').append('<div class="row"><div class="col-md-2">'
-			+'<img src="../img/default-avatar.png" alt="Avatar" width="64" height="64" class="img-circle">'
-		+'</div><div class="col-md-10"><h3>'+data.posts[i].name+'</h3>'
-			+'<p class="post">'+data.posts[i].text+'</p></div></div>');
+											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="../img/default-avatar.png" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
 										}
 									}
 								}
@@ -173,8 +160,27 @@ function loadTeamPage(team) {
 function loadLeaguePage(league) {
 	if (loggedIn) {
 		$("#inner-container").load('pages/leagues.html', function() {
-			if (league)
+			if (league) {
 				$(".league-header").html("<h2>" + league + "</h2>");
+				var formData = {
+					league : league
+				};
+				$.ajax({
+					url : "server/getaleague.php",
+					type : "POST",
+					data : formData,
+					success : function(data, textStatus, jqXHR) {
+						data = $.parseJSON(data);
+						$('.league-description').append(data.description);
+						var list = $('.teams');
+						if (data.teams) {
+							for (var i = 0; i < data.teams.length; i++) {
+								list.append("<li>" + data.teams[i] + "</li>");
+							}
+						}
+					}
+				});
+			}
 		});
 		removeActiveNavClasses();
 		$("#nav-leagues").addClass("active");

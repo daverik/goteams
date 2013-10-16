@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    $dbcnx = @mysql_connect("localhost", "root", "");
+    $dbcnx = @mysql_connect("localhost", "root", "root");
  	
 	// if not connected, login anyway (for testing purposes)
  	if (!$dbcnx) {

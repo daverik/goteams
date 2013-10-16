@@ -1,6 +1,6 @@
 <?php
 	session_start(); 
-	$dbcnx = @mysql_connect("localhost", "root", "");
+	$dbcnx = @mysql_connect("localhost", "root", "root");
 
 	mysql_select_db("lagvarvet", $dbcnx);
 
