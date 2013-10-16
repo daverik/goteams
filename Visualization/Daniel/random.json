@@ -1,0 +1,354 @@
+{"ble":
+[
+    {
+        "id": 0,
+        "age": 27,
+        "gender": "male",
+        "company": 0,
+        "time": 28916
+    },
+    {
+        "id": 1,
+        "age": 37,
+        "gender": "male",
+        "company": 1,
+        "time": 21483
+    },
+    {
+        "id": 2,
+        "age": 37,
+        "gender": "male",
+        "company": 1,
+        "time": 25506
+    },
+    {
+        "id": 3,
+        "age": 36,
+        "gender": "male",
+        "company": 1,
+        "time": 21076
+    },
+    {
+        "id": 4,
+        "age": 35,
+        "gender": "male",
+        "company": 2,
+        "time": 24755
+    },
+    {
+        "id": 5,
+        "age": 40,
+        "gender": "male",
+        "company": 0,
+        "time": 25377
+    },
+    {
+        "id": 6,
+        "age": 30,
+        "gender": "male",
+        "company": 1,
+        "time": 36704
+    },
+    {
+        "id": 7,
+        "age": 34,
+        "gender": "male",
+        "company": 0,
+        "time": 30038
+    },
+    {
+        "id": 8,
+        "age": 29,
+        "gender": "male",
+        "company": 1,
+        "time": 32153
+    },
+    {
+        "id": 9,
+        "age": 39,
+        "gender": "male",
+        "company": 0,
+        "time": 21316
+    },
+    {
+        "id": 10,
+        "age": 27,
+        "gender": "male",
+        "company": 1,
+        "time": 23381
+    },
+    {
+        "id": 11,
+        "age": 29,
+        "gender": "male",
+        "company": 2,
+        "time": 23733
+    },
+    {
+        "id": 12,
+        "age": 27,
+        "gender": "male",
+        "company": 2,
+        "time": 37394
+    },
+    {
+        "id": 13,
+        "age": 28,
+        "gender": "male",
+        "company": 2,
+        "time": 28698
+    },
+    {
+        "id": 14,
+        "age": 37,
+        "gender": "male",
+        "company": 2,
+        "time": 27992
+    },
+    {
+        "id": 15,
+        "age": 26,
+        "gender": "male",
+        "company": 0,
+        "time": 22633
+    },
+    {
+        "id": 16,
+        "age": 25,
+        "gender": "male",
+        "company": 1,
+        "time": 27176
+    },
+    {
+        "id": 17,
+        "age": 30,
+        "gender": "male",
+        "company": 0,
+        "time": 32318
+    },
+    {
+        "id": 18,
+        "age": 26,
+        "gender": "male",
+        "company": 0,
+        "time": 33320
+    },
+    {
+        "id": 19,
+        "age": 33,
+        "gender": "male",
+        "company": 2,
+        "time": 26087
+    },
+    {
+        "id": 20,
+        "age": 34,
+        "gender": "male",
+        "company": 2,
+        "time": 22268
+    },
+    {
+        "id": 21,
+        "age": 31,
+        "gender": "male",
+        "company": 0,
+        "time": 31486
+    },
+    {
+        "id": 22,
+        "age": 33,
+        "gender": "male",
+        "company": 1,
+        "time": 30586
+    },
+    {
+        "id": 23,
+        "age": 29,
+        "gender": "male",
+        "company": 0,
+        "time": 37788
+    },
+    {
+        "id": 24,
+        "age": 31,
+        "gender": "male",
+        "company": 1,
+        "time": 32967
+    },
+    {
+        "id": 25,
+        "age": 27,
+        "gender": "male",
+        "company": 2,
+        "time": 25628
+    },
+    {
+        "id": 26,
+        "age": 20,
+        "gender": "male",
+        "company": 0,
+        "time": 24471
+    },
+    {
+        "id": 27,
+        "age": 24,
+        "gender": "male",
+        "company": 2,
+        "time": 28774
+    },
+    {
+        "id": 28,
+        "age": 35,
+        "gender": "male",
+        "company": 0,
+        "time": 33209
+    },
+    {
+        "id": 29,
+        "age": 22,
+        "gender": "male",
+        "company": 0,
+        "time": 39533
+    },
+    {
+        "id": 30,
+        "age": 36,
+        "gender": "male",
+        "company": 2,
+        "time": 32333
+    },
+    {
+        "id": 31,
+        "age": 25,
+        "gender": "male",
+        "company": 2,
+        "time": 25812
+    },
+    {
+        "id": 32,
+        "age": 22,
+        "gender": "male",
+        "company": 1,
+        "time": 39476
+    },
+    {
+        "id": 33,
+        "age": 26,
+        "gender": "male",
+        "company": 2,
+        "time": 28845
+    },
+    {
+        "id": 34,
+        "age": 21,
+        "gender": "male",
+        "company": 2,
+        "time": 34897
+    },
+    {
+        "id": 35,
+        "age": 34,
+        "gender": "male",
+        "company": 0,
+        "time": 20953
+    },
+    {
+        "id": 36,
+        "age": 38,
+        "gender": "male",
+        "company": 0,
+        "time": 26837
+    },
+    {
+        "id": 37,
+        "age": 37,
+        "gender": "male",
+        "company": 2,
+        "time": 28882
+    },
+    {
+        "id": 38,
+        "age": 38,
+        "gender": "male",
+        "company": 2,
+        "time": 21314
+    },
+    {
+        "id": 39,
+        "age": 22,
+        "gender": "male",
+        "company": 0,
+        "time": 27748
+    },
+    {
+        "id": 40,
+        "age": 37,
+        "gender": "male",
+        "company": 2,
+        "time": 30386
+    },
+    {
+        "id": 41,
+        "age": 23,
+        "gender": "male",
+        "company": 1,
+        "time": 36591
+    },
+    {
+        "id": 42,
+        "age": 23,
+        "gender": "male",
+        "company": 2,
+        "time": 30465
+    },
+    {
+        "id": 43,
+        "age": 32,
+        "gender": "male",
+        "company": 1,
+        "time": 22210
+    },
+    {
+        "id": 44,
+        "age": 22,
+        "gender": "male",
+        "company": 0,
+        "time": 27512
+    },
+    {
+        "id": 45,
+        "age": 24,
+        "gender": "male",
+        "company": 0,
+        "time": 25027
+    },
+    {
+        "id": 46,
+        "age": 21,
+        "gender": "male",
+        "company": 0,
+        "time": 33955
+    },
+    {
+        "id": 47,
+        "age": 39,
+        "gender": "male",
+        "company": 2,
+        "time": 38780
+    },
+    {
+        "id": 48,
+        "age": 37,
+        "gender": "male",
+        "company": 0,
+        "time": 32189
+    },
+    {
+        "id": 49,
+        "age": 23,
+        "gender": "male",
+        "company": 0,
+        "time": 21188
+    }
+]
+}

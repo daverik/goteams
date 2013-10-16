@@ -1,0 +1,119 @@
+<html>
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  <canvas id="myCanvas" width="500" height="500">
+  </canvas>
+  <script>
+  function Point(x,y) {
+    this.x = x;
+    this.y = y; 
+  }
+
+
+	var points = [];
+	var canvas = document.getElementById('myCanvas');
+	var ctx = canvas.getContext('2d');
+	var circ = [];
+
+   	$.getJSON( "random.json", function( data ) {
+		
+		console.log(data.ble[0]);
+	  	
+	  	var p1 = new Point(100,150);
+  		var p2 = new Point(450,50);
+	  		
+		  ctx.beginPath();
+		  ctx.moveTo(p1.x,p1.y);
+		  ctx.lineTo(p2.x,p2.y);
+		  ctx.stroke();
+		  
+		  var pointsData = [{"x":50,"y":50},{"x":450,"y":50},{"x":450,"y":450},{"x":50,"y":450}]
+		  
+		  for(var i = 0; i < pointsData.length; i++) {
+		    points.push(new Point(pointsData[i].x,pointsData[i].y));
+		  }
+	
+			
+		  var t = 0;
+		  
+		  for (var i = 0; i < data.ble.length; i++) {
+		  	circ[i] = new Circle(data.ble[i].time);
+		  }
+		  
+		
+		  setInterval(function() {
+		    redraw();
+		     
+		    for (var i = 0; i < circ.length; i++) {
+		  		circ[i].move(10);
+		  		drawObject(circ[i], data.ble[i].company);
+		  	}
+		  }, 10);
+	  
+	});		
+ 
+  
+  function Circle(endTime) {
+    this.endTime = endTime;
+    var start,next;
+    var pointIndex = 1;
+    this.time = 0;
+    start = points[0];
+    next = points[1];
+    this.position = new Point(start.x,start.y);
+    
+    this.x = function() {
+      return this.position.x;
+    }
+    
+    this.y = function() {
+      return this.position.y;
+    }
+    
+    this.move = function(time) {
+    this.time += time;
+      
+      if(this.time >= endTime/(points.length)) {
+        this.time = 0;
+        if(points.length > 0) {
+          start = next;
+          if(pointIndex < points.length-1) {
+            next = points[pointIndex++];
+          } else {
+            pointIndex = 0;
+            next = points[pointIndex];
+          }
+        }
+      }
+      var delta = this.time/(endTime/points.length);
+      this.position.x = start.x + delta*(next.x-start.x);
+      this.position.y = start.y + delta*(next.y-start.y);
+    }
+  }
+  
+  
+  function redraw() {
+    ctx.fillStyle="#ffffff";
+    ctx.fillRect(0,0,500,500);
+  }
+  
+  function drawObject(obj, color) {
+    if (color == 0){
+    	ctx.fillStyle="blue";
+    } else if (color == 1) {
+    	ctx.fillStyle="red";
+    } else {
+    	ctx.fillStyle="green";
+    }
+    
+    ctx.beginPath();
+    ctx.arc(obj.x(), obj.y(), 10, 0, Math.PI*2, true); 
+    ctx.closePath();
+    ctx.fill();
+  }
+  </script>
+  
+</body>
+</html>

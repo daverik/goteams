@@ -150,6 +150,8 @@ function loadTeamPage(team) {
 						}
 					}
 				});
+			} else {
+				$('.team-content').hide();
 			}
 		});
 		removeActiveNavClasses();
@@ -161,6 +163,7 @@ function loadLeaguePage(league) {
 	if (loggedIn) {
 		$("#inner-container").load('pages/leagues.html', function() {
 			if (league) {
+				$("#page-info").hide();
 				$(".league-header").html("<h2>" + league + "</h2>");
 				var formData = {
 					league : league
@@ -180,6 +183,8 @@ function loadLeaguePage(league) {
 						}
 					}
 				});
+			} else {
+				$('.league-content').hide();
 			}
 		});
 		removeActiveNavClasses();

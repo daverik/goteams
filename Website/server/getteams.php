@@ -19,7 +19,7 @@
 
 	$qTeam = mysql_query("SELECT teamtitle FROM teamsquad WHERE runnerpnr = '$pnr'");
 	
-	// Print the teams that the user is a member of.
+	// Get the teams that the user is a member of.
 	$str = '{ "teams": [';
 	while ( $row = mysql_fetch_array($qTeam) ) {
 		$team = $row["teamtitle"];
