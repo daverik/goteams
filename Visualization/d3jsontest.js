@@ -87,15 +87,15 @@ function d3json ()
 	    .attr("transform", "translate(" + points[0] + ")");
 	
 	
-	var circle1 = svg.append("circle")
+	var circle = svg.append("circle")
 	    .attr("r", 13)
 	    .attr("fill", "red")
 	    .attr("transform", "translate(" + points[0] + ")");
 	
 	
-	transition(circle1);
-	
-	setTimeout(transition(circle2), 1000);
+	//transition(circle1);
+	//transition();
+	d3.setTimeout(transition(circle2), 5000);
 	
 	function transition(circle) {
 	  circle.transition()
