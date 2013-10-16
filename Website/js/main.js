@@ -10,6 +10,24 @@ function removeActiveNavClasses() {
 	$("#nav-leagues").removeClass("active");
 }
 
+$('.searchbox').keyup(function(e) {
+	if(!$('.search-dropdown').hasClass('open')) {
+		$('.search-dropdown').addClass('open');
+	}
+	var formData = {
+		value : $('.searchbox').val()
+	};	
+	$.ajax({
+		url : "server/search.php",
+		type : "POST",
+		data : formData,
+		success : function(data, textStatus, jqXHR) {
+			var msg = $.parseJSON(data);
+			console.log(msg.value);
+		}
+	});
+});
+
 
 $('#nav-map-link').click(function() {
 	if (loggedIn) {
@@ -206,4 +224,14 @@ $(document).mouseup(function(e) {
 	{
 		container.hide();
 	}
+	
+	container1 = $(".search-dropdown");
+	container2 = $(".searchbox");
+
+	if (!container1.is(e.target) && !container2.is(e.target)// if the target of the click isn't the container...
+	&& container1.has(e.target).length === 0)// ... nor a descendant of the container
+	{
+		container1.removeClass('open');
+	}
+	
 });
