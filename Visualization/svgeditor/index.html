@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+  <canvas id="myCanvas" weight="500" height="500">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+  var canvas = document.getElementById('myCanvas');
+  var ctx = canvas.getContext('2d');
+  
+  var mouseX, mouseY;  
+  var lastPoint;
+  
+  var points = [];
+  
+  function Point(x,y) {
+    this.x = x;
+    this.y = y; 
+  }
+  
+  $(document).keypress(function(e) {
+    console.log(JSON.stringify(points));
+  });
+  
+  $('#myCanvas').click(function(e) {
+    points.push({"x":e.offsetX,"y":e.offsetY});
+    console.log(e.offsetX);
+    if(lastPoint) {
+      ctx.beginPath();
+      ctx.moveTo(lastPoint.x,lastPoint.y);
+      ctx.lineTo(e.offsetX,e.offsetY);
+      ctx.stroke();
+    }
+    lastPoint = new Point(e.offsetX,e.offsetY);
+  });
+  
+  </script>
+</body>
+</html>
