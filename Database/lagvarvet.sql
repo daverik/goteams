@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 16 okt 2013 kl 12:59
+-- Skapad: 17 okt 2013 kl 15:54
 -- Serverversion: 5.6.12-log
 -- PHP-version: 5.4.16
 
@@ -29,7 +29,7 @@ USE `lagvarvet`;
 --
 
 CREATE TABLE IF NOT EXISTS `feedpost` (
-  `dateofpost` char(8) NOT NULL DEFAULT '',
+  `dateofpost` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `poster` bigint(20) NOT NULL DEFAULT '0',
   `teamofpost` varchar(32) NOT NULL DEFAULT '',
   `textpost` varchar(8000) DEFAULT NULL,
@@ -37,6 +37,17 @@ CREATE TABLE IF NOT EXISTS `feedpost` (
   KEY `poster` (`poster`),
   KEY `teamofpost` (`teamofpost`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumpning av Data i tabell `feedpost`
+--
+
+INSERT INTO `feedpost` (`dateofpost`, `poster`, `teamofpost`, `textpost`) VALUES
+('2013-10-17 17:52:26', 8910152142, 'IxD Grupp 5', 'Hysén!! Vilken ängel'),
+('2013-10-17 17:52:26', 8911232415, 'IxD Grupp 5', 'Idag gick det jäkligt bra!'),
+('2013-10-17 17:52:26', 9010242142, 'IxD Grupp 5', 'Laoshi'),
+('2013-10-17 17:52:27', 8912112242, 'IxD Grupp 5', 'Men de va la roligt då'),
+('2013-10-17 17:52:27', 9003152142, 'IxD Grupp 5', 'AGGRESSION!');
 
 -- --------------------------------------------------------
 
@@ -91,11 +102,120 @@ CREATE TABLE IF NOT EXISTS `result` (
   `checkpoint` int(11) NOT NULL,
   `timeresult` int(11) NOT NULL,
   `runnerpnr` bigint(20) NOT NULL,
-  `runnerid` int(11) DEFAULT NULL,
+  `points` int(11) DEFAULT NULL,
   PRIMARY KEY (`checkpoint`,`runnerpnr`),
-  KEY `runnerpnr` (`runnerpnr`),
-  KEY `runnerid` (`runnerid`)
+  KEY `runnerpnr` (`runnerpnr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumpning av Data i tabell `result`
+--
+
+INSERT INTO `result` (`checkpoint`, `timeresult`, `runnerpnr`, `points`) VALUES
+(5, 7731, 1004005938, 0),
+(5, 7162, 1123777130, 0),
+(5, 8611, 1135679594, 0),
+(5, 8285, 1330179376, 0),
+(5, 6777, 1334781536, 0),
+(5, 7939, 1335477475, 0),
+(5, 7388, 1337208094, 0),
+(5, 7352, 1581944009, 0),
+(5, 7657, 1678869589, 0),
+(5, 5852, 1732347098, 0),
+(5, 5784, 1858599029, 0),
+(5, 7325, 1997341984, 0),
+(5, 8172, 2367189797, 0),
+(5, 7132, 2549170561, 0),
+(5, 8059, 2638795718, 0),
+(5, 8735, 2650724177, 0),
+(5, 7693, 2873866787, 0),
+(5, 8523, 2910031320, 0),
+(5, 5932, 3042101658, 0),
+(5, 8500, 3153501347, 0),
+(5, 7953, 3539278155, 0),
+(5, 6622, 3627713605, 0),
+(5, 7812, 3723614040, 0),
+(5, 7620, 3797103827, 0),
+(5, 5462, 3964981727, 0),
+(5, 6266, 4033702013, 0),
+(5, 7702, 4083492907, 0),
+(5, 8964, 4233534078, 0),
+(5, 5507, 4259630413, 0),
+(5, 5625, 4321546739, 0),
+(5, 6225, 4440180598, 0),
+(5, 8492, 4503759592, 0),
+(5, 6928, 4574287171, 0),
+(5, 8887, 4610381963, 0),
+(5, 6277, 4612616243, 0),
+(5, 6889, 4754820676, 0),
+(5, 8902, 4867180503, 0),
+(5, 8516, 4994296187, 0),
+(5, 7200, 5189826639, 0),
+(5, 6067, 5310431292, 0),
+(5, 5416, 5329252470, 0),
+(5, 6195, 5402837382, 0),
+(5, 6783, 5462513793, 0),
+(5, 5905, 5552689144, 0),
+(5, 8006, 5746380819, 0),
+(5, 6429, 5862766151, 0),
+(5, 5433, 5864323825, 0),
+(5, 6561, 6126924847, 0),
+(5, 7021, 6317531538, 0),
+(5, 8535, 6429605379, 0),
+(5, 7966, 6458015497, 0),
+(5, 5543, 6547878894, 0),
+(5, 8424, 6697004782, 0),
+(5, 8077, 6708341442, 0),
+(5, 6885, 6891800557, 0),
+(5, 7866, 7006563087, 0),
+(5, 6457, 7043685891, 0),
+(5, 5765, 7119486655, 0),
+(5, 8543, 7140196095, 0),
+(5, 8919, 7166124678, 0),
+(5, 6064, 7208581847, 0),
+(5, 6377, 7259666988, 0),
+(5, 6314, 7311584786, 0),
+(5, 5549, 7484925001, 0),
+(5, 6761, 7575884680, 0),
+(5, 8719, 7607132521, 0),
+(5, 5817, 7641761246, 0),
+(5, 7671, 7657199713, 0),
+(5, 6877, 7675871930, 0),
+(5, 8915, 7874715997, 0),
+(5, 6734, 7988350121, 0),
+(5, 7592, 8078735551, 0),
+(5, 8785, 8117678880, 0),
+(5, 7704, 8145819887, 0),
+(5, 8064, 8216285400, 0),
+(5, 8221, 8238437317, 0),
+(5, 5902, 8251721554, 0),
+(5, 7091, 8320106231, 0),
+(5, 7000, 8425580162, 0),
+(5, 7942, 8448172560, 0),
+(5, 5676, 8507026644, 0),
+(5, 5439, 8604025824, 0),
+(5, 6906, 8679117701, 0),
+(5, 7154, 8743358548, 0),
+(5, 6435, 8767076938, 0),
+(5, 7222, 8892183016, 0),
+(5, 7086, 8910152142, 0),
+(5, 7802, 8911232415, 0),
+(5, 7441, 8912112242, 0),
+(5, 5735, 9003152142, 0),
+(5, 6193, 9010242142, 0),
+(5, 8576, 9103924884, 0),
+(5, 6709, 9113239631, 0),
+(5, 6152, 9297414688, 0),
+(5, 7449, 9387041220, 0),
+(5, 6015, 9454118782, 0),
+(5, 6260, 9567067751, 0),
+(5, 6998, 9655051875, 0),
+(5, 7854, 9664686074, 0),
+(5, 6607, 9669367805, 0),
+(5, 6487, 9730587122, 0),
+(5, 5713, 9735900227, 0),
+(5, 8673, 9768047473, 0),
+(5, 8152, 9823496926, 0);
 
 -- --------------------------------------------------------
 
@@ -125,20 +245,11 @@ CREATE TABLE IF NOT EXISTS `runner` (
 --
 
 INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `userinfo`, `runnerid`, `points`, `city`, `picture`) VALUES
-(133478153, 'Mason', 'AFR18YXL7ER', 'Mason', 'Browning', 'Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis', 28, 0, 'Malmö', ''),
-(287386678, 'Nehru', 'IRA04JRR5OZ', 'Nehru', 'Swanson', 'Pellentesque', 3, 0, 'Stockholm', ''),
-(461038196, 'Richard', 'SWM34SUW4NW', 'Richard', 'Howell', 'enim mi tempor lorem, eget mollis', 87, 0, 'Göteborg', ''),
-(540283738, 'Knox', 'LHT81ICU3EN', 'Knox', 'Hickman', 'lorem, eget mollis lectus pede et risus.', 85, 0, 'Göteborg', ''),
-(586432382, 'Zephania', 'XGB82VQV2SE', 'Zephania', 'Craft', 'et magnis dis parturient montes, nascetur ridiculus', 39, 0, 'Malmö', ''),
-(700656308, 'Aiko', 'IMQ03JHG5YL', 'Aiko', 'Carroll', 'vitae risus. Duis a mi fringilla mi lacinia mattis. Integer', 38, 0, 'Malmö', ''),
-(807873555, 'Casey', 'SGS99RUW8NG', 'Casey', 'Castro', 'rutrum lorem ac risus. Morbi metus.', 84, 0, 'Göteborg', ''),
-(867911770, 'Fulton', 'SKS89DMO3HK', 'Fulton', 'Levine', 'a neque. Nullam ut nisi a odio', 70, 0, 'Göteborg', ''),
-(965505187, 'Abdul', 'EKD89HAV3OC', 'Abdul', 'Casey', 'Mauris non dui nec urna', 5, 0, 'Stockholm', ''),
-(966468607, 'Larissa', 'AAU77PHT6JM', 'Larissa', 'Alston', 'feugiat tellus lorem eu metus.', 88, 0, 'Göteborg', ''),
 (1004005938, 'Grace', 'DNU64DII2DM', 'Grace', 'Osborne', 'fermentum vel, mauris. Integer', 46, 0, 'Göteborg', ''),
 (1123777130, 'Camilla', 'NMC42MZY0MC', 'Camilla', 'Walsh', 'euismod et, commodo', 15, 0, 'Stockholm', ''),
 (1135679594, 'Kendall', 'RWM08EPS9NL', 'Kendall', 'Mitchell', 'eu augue porttitor interdum. Sed auctor', 25, 0, 'Stockholm', ''),
 (1330179376, 'Ignacia', 'DEI70EVL0UF', 'Ignacia', 'Dennis', 'mauris, aliquam eu,', 67, 0, 'Göteborg', ''),
+(1334781536, 'Mason', 'AFR18YXL7ER', 'Mason', 'Browning', 'Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis', 28, 0, 'Malmö', ''),
 (1335477475, 'Hedley', 'LMK68SLQ3KV', 'Hedley', 'Day', 'in, hendrerit consectetuer, cursus et, magna. Praesent interdum', 75, 0, 'Göteborg', ''),
 (1337208094, 'Colt', 'ZEX94CLD6JN', 'Colt', 'Ray', 'eu nulla at', 73, 0, 'Göteborg', ''),
 (1581944009, 'Audrey', 'YFH82BOM5LK', 'Audrey', 'Berger', 'mus. Proin vel nisl.', 42, 0, 'Malmö', ''),
@@ -150,6 +261,7 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (2549170561, 'Ava', 'IML47IIZ6MO', 'Ava', 'Cantrell', 'Vestibulum accumsan neque et nunc. Quisque ornare', 97, 0, 'Göteborg', ''),
 (2638795718, 'Wing', 'PBM16OIF6LX', 'Wing', 'Odonnell', 'Donec', 71, 0, 'Göteborg', ''),
 (2650724177, 'Rogan', 'SKJ64MUS6NW', 'Rogan', 'Sawyer', 'arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi.', 58, 0, 'Göteborg', ''),
+(2873866787, 'Nehru', 'IRA04JRR5OZ', 'Nehru', 'Swanson', 'Pellentesque', 3, 0, 'Stockholm', ''),
 (2910031320, 'Amber', 'KPT30FKQ9EZ', 'Amber', 'Davenport', 'Proin non massa non ante', 12, 0, 'Stockholm', ''),
 (3042101658, 'Karyn', 'MMK98NIN1TR', 'Karyn', 'Walter', 'Duis', 8, 0, 'Stockholm', ''),
 (3153501347, 'Clayton', 'FIP73OIG8CJ', 'Clayton', 'Koch', 'adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem', 22, 0, 'Stockholm', ''),
@@ -166,6 +278,7 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (4440180598, 'Yolanda', 'GVU43AFR4OW', 'Yolanda', 'Perry', 'convallis erat, eget tincidunt dui augue eu', 31, 0, 'Malmö', ''),
 (4503759592, 'Germaine', 'IGM18OZR5KE', 'Germaine', 'Gordon', 'erat volutpat. Nulla dignissim. Maecenas', 60, 0, 'Göteborg', ''),
 (4574287171, 'Drew', 'NVE35WVX9LR', 'Drew', 'Carey', 'in consequat enim diam vel', 63, 0, 'Göteborg', ''),
+(4610381963, 'Richard', 'SWM34SUW4NW', 'Richard', 'Howell', 'enim mi tempor lorem, eget mollis', 87, 0, 'Göteborg', ''),
 (4612616243, 'Howard', 'FJB42VRA8IE', 'Howard', 'Tyler', 'augue, eu tempor', 19, 0, 'Stockholm', ''),
 (4754820676, 'Beau', 'GDL32YVZ3YR', 'Beau', 'Mercer', 'bibendum. Donec felis', 26, 0, 'Stockholm', ''),
 (4867180503, 'Alexa', 'DMR04OOK6WP', 'Alexa', 'Schneider', 'sodales purus, in molestie tortor nibh sit amet orci. Ut', 23, 0, 'Stockholm', ''),
@@ -173,10 +286,12 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (5189826639, 'Cadman', 'DEK22GML7HB', 'Cadman', 'Mcguire', 'Sed et libero. Proin mi. Aliquam gravida', 14, 0, 'Stockholm', ''),
 (5310431292, 'Shannon', 'QZC93FKM8VM', 'Shannon', 'Henderson', 'pede et risus. Quisque libero lacus, varius et, euismod', 65, 0, 'Göteborg', ''),
 (5329252470, 'Katell', 'HDR15OBU3CC', 'Katell', 'Benson', 'Sed', 4, 0, 'Stockholm', ''),
+(5402837382, 'Knox', 'LHT81ICU3EN', 'Knox', 'Hickman', 'lorem, eget mollis lectus pede et risus.', 85, 0, 'Göteborg', ''),
 (5462513793, 'Emily', 'EAG21AEB6AY', 'Emily', 'Dickerson', 'id, libero. Donec consectetuer mauris', 95, 0, 'Göteborg', ''),
 (5552689144, 'Dara', 'XOG92UZE2HR', 'Dara', 'Hill', 'Nunc ullamcorper, velit in aliquet lobortis, nisi nibh', 9, 0, 'Stockholm', ''),
 (5746380819, 'Joan', 'YKT81MJQ2FW', 'Joan', 'Wallace', 'natoque penatibus et magnis dis', 81, 0, 'Göteborg', ''),
 (5862766151, 'Tanya', 'CFY53TJH8HW', 'Tanya', 'Rodgers', 'leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod', 17, 0, 'Stockholm', ''),
+(5864323825, 'Zephania', 'XGB82VQV2SE', 'Zephania', 'Craft', 'et magnis dis parturient montes, nascetur ridiculus', 39, 0, 'Malmö', ''),
 (6126924847, 'Fitzgerald', 'GSA87ABW7XY', 'Fitzgerald', 'Tyson', 'sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut', 92, 0, 'Göteborg', ''),
 (6317531538, 'Brooke', 'OZF31HQP9SQ', 'Brooke', 'Pittman', 'et', 89, 0, 'Göteborg', ''),
 (6429605379, 'Skyler', 'UMZ88YOE7NY', 'Skyler', 'Marsh', 'lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus.', 62, 0, 'Göteborg', ''),
@@ -185,6 +300,7 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (6697004782, 'Rhonda', 'FSI49DUU9BD', 'Rhonda', 'Howard', 'sit amet orci. Ut sagittis', 98, 0, 'Göteborg', ''),
 (6708341442, 'Adrienne', 'FMV67FLM1QW', 'Adrienne', 'Mckenzie', 'In nec orci. Donec nibh. Quisque nonummy ipsum', 37, 0, 'Malmö', ''),
 (6891800557, 'Althea', 'EGT82HCK4DH', 'Althea', 'Dominguez', 'ut, molestie in, tempus eu, ligula. Aenean', 40, 0, 'Malmö', ''),
+(7006563087, 'Aiko', 'IMQ03JHG5YL', 'Aiko', 'Carroll', 'vitae risus. Duis a mi fringilla mi lacinia mattis. Integer', 38, 0, 'Malmö', ''),
 (7043685891, 'Lydia', 'GOG71GIK5LV', 'Lydia', 'Velasquez', 'Proin', 76, 0, 'Göteborg', ''),
 (7119486655, 'Tara', 'JSV31UHC9BG', 'Tara', 'Mclean', 'mi enim, condimentum', 83, 0, 'Göteborg', ''),
 (7140196095, 'Quincy', 'DIO18MBA2XP', 'Quincy', 'Sweeney', 'justo nec ante. Maecenas mi felis, adipiscing', 57, 0, 'Göteborg', ''),
@@ -200,6 +316,7 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (7675871930, 'Anastasia', 'VUM12OSP9EV', 'Anastasia', 'Sykes', 'egestas rhoncus. Proin', 20, 0, 'Stockholm', ''),
 (7874715997, 'Barclay', 'OKM26LGC5TW', 'Barclay', 'Rodriguez', 'tristique ac, eleifend vitae, erat. Vivamus nisi.', 49, 0, 'Göteborg', ''),
 (7988350121, 'Ray', 'DJB14RMP1DU', 'Ray', 'Mcknight', 'Fusce aliquam, enim nec tempus scelerisque, lorem ipsum sodales', 99, 0, 'Göteborg', ''),
+(8078735551, 'Casey', 'SGS99RUW8NG', 'Casey', 'Castro', 'rutrum lorem ac risus. Morbi metus.', 84, 0, 'Göteborg', ''),
 (8117678880, 'James', 'WHU46JNX0SZ', 'James', 'Macdonald', 'dapibus', 69, 0, 'Göteborg', ''),
 (8145819887, 'Trevor', 'QVR75ILH3TR', 'Trevor', 'Peck', 'risus. Donec nibh enim, gravida sit amet, dapibus id, blandit', 13, 0, 'Stockholm', ''),
 (8216285400, 'Channing', 'CGF83XHC9HI', 'Channing', 'Sharp', 'et pede. Nunc sed orci lobortis augue scelerisque', 91, 0, 'Göteborg', ''),
@@ -210,6 +327,7 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (8448172560, 'Moses', 'YAD75HTZ8ZD', 'Moses', 'Dominguez', 'In', 1, 0, 'Stockholm', ''),
 (8507026644, 'Gemma', 'WTP27QSQ9MJ', 'Gemma', 'Stokes', 'Vivamus rhoncus. Donec est.', 94, 0, 'Göteborg', ''),
 (8604025824, 'Elton', 'FFH25YWX4FV', 'Elton', 'Rollins', 'nec enim. Nunc', 80, 0, 'Göteborg', ''),
+(8679117701, 'Fulton', 'SKS89DMO3HK', 'Fulton', 'Levine', 'a neque. Nullam ut nisi a odio', 70, 0, 'Göteborg', ''),
 (8743358548, 'Tana', 'YUC94OES9WW', 'Tana', 'Franklin', 'tellus. Phasellus elit', 41, 0, 'Malmö', ''),
 (8767076938, 'Hope', 'INN06MCL3YK', 'Hope', 'Eaton', 'ut nisi a odio', 2, 0, 'Stockholm', ''),
 (8892183016, 'Jasper', 'FNA60VVC1XG', 'Jasper', 'Obrien', 'Phasellus dapibus quam quis diam. Pellentesque', 6, 0, 'Stockholm', ''),
@@ -217,13 +335,15 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (8911232415, 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', 23126, 0, 'Göteborg', ''),
 (8912112242, 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', 23128, 0, 'Göteborg', ''),
 (9003152142, 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', 23127, 0, 'Göteborg', ''),
-(9010242142, 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', 23124, 0, 'Falköping', ''),
+(9010242142, 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', 23124, 0, 'Göteborg', ''),
 (9103924884, 'Shana', 'OBR73XEY8HL', 'Shana', 'Stokes', 'diam lorem, auctor quis,', 16, 0, 'Stockholm', ''),
 (9113239631, 'Gillian', 'JPU70GBO3HE', 'Gillian', 'Wall', 'odio. Etiam ligula tortor, dictum', 72, 0, 'Göteborg', ''),
 (9297414688, 'Madison', 'EKF27UMQ8PP', 'Madison', 'Day', 'ornare', 74, 0, 'Göteborg', ''),
 (9387041220, 'Rana', 'UCV68NGF7SO', 'Rana', 'Fry', 'Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie', 61, 0, 'Göteborg', ''),
 (9454118782, 'Belle', 'SPX92BJT1WX', 'Belle', 'Porter', 'nibh vulputate mauris sagittis placerat. Cras dictum', 24, 0, 'Stockholm', ''),
 (9567067751, 'Aladdin', 'HRW12ZCK8YG', 'Aladdin', 'Page', 'Sed', 52, 0, 'Göteborg', ''),
+(9655051875, 'Abdul', 'EKD89HAV3OC', 'Abdul', 'Casey', 'Mauris non dui nec urna', 5, 0, 'Stockholm', ''),
+(9664686074, 'Larissa', 'AAU77PHT6JM', 'Larissa', 'Alston', 'feugiat tellus lorem eu metus.', 88, 0, 'Göteborg', ''),
 (9669367805, 'Kibo', 'FWT14IYL4OZ', 'Kibo', 'Bell', 'nec metus facilisis lorem tristique', 90, 0, 'Göteborg', ''),
 (9730587122, 'Hedy', 'BDM07LPR7AI', 'Hedy', 'Graham', 'vel arcu. Curabitur ut odio vel est tempor', 78, 0, 'Göteborg', ''),
 (9735900227, 'Caldwell', 'UEG73IPM8DC', 'Caldwell', 'Ford', 'nec, mollis vitae, posuere at, velit. Cras lorem lorem,', 66, 0, 'Göteborg', ''),
@@ -347,8 +467,7 @@ ALTER TABLE `leaguemembers`
 -- Restriktioner för tabell `result`
 --
 ALTER TABLE `result`
-  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`runnerpnr`) REFERENCES `runner` (`pnr`),
-  ADD CONSTRAINT `result_ibfk_2` FOREIGN KEY (`runnerid`) REFERENCES `runner` (`runnerid`);
+  ADD CONSTRAINT `result_ibfk_1` FOREIGN KEY (`runnerpnr`) REFERENCES `runner` (`pnr`);
 
 --
 -- Restriktioner för tabell `teamsquad`
