@@ -5,9 +5,9 @@
 	
 	$output = '{"values":[';
 	
-	if(strlen($value) > 1) {
+	if(strlen($value) > 0) {
 		
-	$pattern = '/'.$value.'*/';
+	$pattern = '/'.$value.'/';
 	
 	$json = json_decode($str);
 	foreach($json->values as $item)
