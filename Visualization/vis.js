@@ -74,7 +74,7 @@ $.getJSON( "random1000.json", function( data ) {
 						if(Math.abs(circ[i].position.x - circ[j].position.x) < 30 
 							&& Math.abs(circ[i].position.y - circ[j].position.y) < 30){
 							skip.push(j);
-							if (radius <= 50) {
+							if (radius <= 300) {
 								radius = radius + 0.1;
 							} else {break;}
 						}
