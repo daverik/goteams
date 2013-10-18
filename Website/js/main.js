@@ -59,14 +59,9 @@ $('.searchbox').keyup(function(e) {
                 loadLeaguePage($(this).find('a').html().trim());
             });
             
-            // First name results
-            for(var i = 0; i < msg.firstnames.length; i++) {
-                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.firstnames[i]+"</a></li>");                
-            }
-            
-            // Last name results
-            for(var i = 0; i < msg.lastnames.length; i++) {
-                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.lastnames[i]+"</a></li>");                
+            // Runner name results
+            for(var i = 0; i < msg.names.length; i++) {
+                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.names[i]+"</a></li>");                
             }
 		}
 	});

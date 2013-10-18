@@ -1,9 +1,9 @@
 <?php
     // Gets data from the query and puts in a json formatted string.
-    function getData ($data, $query, &$str) {
+    function getData ($dataColumn, $query, &$str) {
         while($row = mysql_fetch_array($query)) {
-            $team = $row[$data];
-            $str .= '"'.$team.'",';
+            $data = $row[$dataColumn];
+            $str .= '"'.$data.'",';
         }
         $str = substr($str,0,strlen($str)-1);
         $str .= ']}';
@@ -30,7 +30,39 @@
             $output .= ']'; 
         }
     }
+    
+    function getDataFirstName ($query, &$str) {
+        while($row = mysql_fetch_array($query)) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+            $str .= '"'.$firstname.' '.$lastname.'",';
+        }
+        $str = substr($str,0,strlen($str)-1);
+        $str .= ']}';
+    }
      
+    /*
+    function regExDataLastName () {
+        $added = false;
+        if(strlen($value) > 0) {
+            $pattern = '/^'.$value.'/i';
+            $json = json_decode($str);
+       
+            foreach($json->values as $item) {
+                preg_match($pattern, $item, $matches);
+                if(sizeof($matches) > 0) {
+                    $output = $output.'"'.$item.'",';
+                    $added = true;
+                }
+            }
+        }
+        if($added) {
+            $output = substr($output,0,strlen($output)-1).']';   
+        } else {
+            $output .= ']'; 
+        }
+    }*/
+    
 	$dbcnx = @mysql_connect("localhost", "root", "root");
     mysql_select_db("lagvarvet", $dbcnx);
     mysql_query ('SET NAMES UTF8;');
@@ -54,18 +86,18 @@
     regExData($output,$value,$str);
     
     // Finds runners (first name) that fit the search.
-    $qFirstName = mysql_query("SELECT firstname FROM runner");
+    $qName = mysql_query("SELECT firstname,lastname FROM runner");
     $str = '{"values":[';
-    $output .= ',"firstnames":[';
-    getData("firstname", $qFirstName, $str);
+    $output .= ',"names":[';
+    getDataFirstName($qName, $str);
     regExData($output,$value,$str);
-    
+    /*
     // Finds runners (first name) that fit the search.
     $qLastName = mysql_query("SELECT lastname FROM runner");
     $str = '{"values":[';
     $output .= ',"lastnames":[';
     getData("lastname", $qLastName, $str);
     regExData($output,$value,$str);
-    
+    */
     echo $output.'}';
 ?>
