@@ -61,9 +61,9 @@ $.getJSON( "random.json", function( data ) {
 		     
 		    for (var i = 0; i < circ.length; i++) {
 		  		circ[i].move(10);
-		  		//if (companiesActive[data.ble[i].company] == true) {
+		  		if (companiesActive[data.ble[i].company] == true) {
 		  			drawObject(circ[i], data.ble[i].company);
-		  		//}
+		  		}
 		  	}
 		  }, 10);
 	  
@@ -149,7 +149,7 @@ function drawObject(obj, col) {
   function myFunction(company) {
   	if (companiesActive[company] == false) {
   		companiesActive[company] = true;
-  	} else {companiesActive[company] = true;}
+  	} else {companiesActive[company] = false;}
   	
   } 
 
