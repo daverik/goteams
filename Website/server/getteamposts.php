@@ -1,14 +1,15 @@
 <?php
+    // Gets the feed for a team.
 	session_start();
     
     // Connect to db.
-	$dbcnx = @mysql_connect("localhost", "root", "root");
+    $dbcnx = @mysql_connect("localhost", "root", "root");
     mysql_select_db("lagvarvet", $dbcnx);
     mysql_query ('SET NAMES UTF8;');
     mysql_query ('SET COLLATION_CONNECTION=utf8_general_ci;');
     mysql_client_encoding($dbcnx);
     
-	$team = $_SESSION['team'];
+    $team = $_SESSION['team'];
 	
     $qTeam = mysql_query("SELECT textpost, firstname, lastname, picture FROM feedpost INNER JOIN runner ON poster = pnr WHERE teamofpost = '$team'");
     $str = '{"posts": [{';
@@ -21,10 +22,10 @@
         $text = $row["textpost"];
         
         $str .= '"name": "'.$fname.' '.$lname.'", ';
-        $str .= '"avatar" : "'.$pic.'", ';
+        $str .= '"avatar" : "", ';
         $str .= '"text" : "'.$text.'"}, {';
     }
     $str = substr($str,0,strlen($str)-3);
 	
-	echo $str.']}';
+    echo $str.']}';
 ?>

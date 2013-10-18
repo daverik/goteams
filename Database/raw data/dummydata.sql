@@ -1,9 +1,9 @@
 /* "Real" runners */
-INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9010242142', 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', '23124', '0', 'Göteborg', '');
-INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8910152142', 'wiltord', 'pw', 'Viktor', 'Swantesson', 'hejhej det är jag som är Viktor', '23125', '0', 'Göteborg', '');
-INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8911232415', 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', '23126', '0', 'Göteborg', '');
-INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9003152142', 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', '23127', '0', 'Göteborg', '');
-INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8912112242', 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', '23128', '0', 'Göteborg', '');
+INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9010242142', 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', '23124', '0', 'Göteborg', 'victor.jpg');
+INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8910152142', 'wiltord', 'pw', 'Viktor', 'Swantesson', 'hejhej det är jag som är Viktor', '23125', '0', 'Göteborg', 'viktor.jpg');
+INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8911232415', 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', '23126', '0', 'Göteborg', 'david.jpg');
+INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9003152142', 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', '23127', '0', 'Göteborg', 'daniel.jpg');
+INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8912112242', 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', '23128', '0', 'Göteborg', 'martin.jpg');
 
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8448172560,"Moses","YAD75HTZ8ZD","Moses","Dominguez","In",1, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8767076938,"Hope","INN06MCL3YK","Hope","Eaton","ut nisi a odio",2, '0', 'Stockholm', '');

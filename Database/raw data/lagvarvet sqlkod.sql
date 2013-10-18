@@ -60,7 +60,7 @@ create table leaguemembers(
 );
 
 create table feedpost(
-	dateofpost datetime default NOW(),
+	dateofpost datetime,
 	poster bigint,
 	teamofpost varchar(32),
 	textpost varchar(8000),
