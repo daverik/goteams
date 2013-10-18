@@ -9,6 +9,9 @@ var p2 = new Point(450, 50);
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
+var circ = [];
+var companiesActive = [];
+
 ctx.beginPath();
 ctx.moveTo(p1.x, p1.y);
 ctx.lineTo(p2.x, p2.y);
@@ -18,6 +21,7 @@ var pointsData = [{"x":1358,"y":2067},{"x":1378,"y":1966},{"x":1473,"y":1936},{"
 
 var points = [];
 var totDist = 0;
+
 
 for (var i = 0; i < pointsData.length - 1; i++) {
 	var xs = 0;
@@ -31,6 +35,39 @@ for (var i = 0; i < pointsData.length - 1; i++) {
 for (var i = 0; i < pointsData.length; i++) {
 	points.push(new Point(pointsData[i].x, pointsData[i].y));
 }
+
+
+base_image = new Image();
+		base_image.src = 'MapNoPath.png';
+	  	//base_image.onload = function(){
+
+$.getJSON( "random.json", function( data ) {
+		
+
+		  ctx.beginPath();
+		  ctx.moveTo(p1.x,p1.y);
+		  ctx.lineTo(p2.x,p2.y);
+		  ctx.stroke();
+			
+		  var t = 0;
+		  
+		  for (var i = 0; i < data.ble.length; i++) {
+		  	circ[i] = new Circle(data.ble[i].time);
+		  }
+		  
+		
+		  setInterval(function() {
+		    redraw();
+		     
+		    for (var i = 0; i < circ.length; i++) {
+		  		circ[i].move(10);
+		  		//if (companiesActive[data.ble[i].company] == true) {
+		  			drawObject(circ[i], data.ble[i].company);
+		  		//}
+		  	}
+		  }, 10);
+	  
+	});	
 
 function Circle(endTime) {
 	this.endTime = endTime;
@@ -82,30 +119,6 @@ function Circle(endTime) {
 	};
 }
 
-var runners = [];
-runners.push({'circle':new Circle(4000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(5000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(6000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(7000), 'color': '#'+Math.random().toString(16).substr(-6)});
-
-for(var i = 0; i < 40; i++) {
-  runners.push({'circle':new Circle(6000+Math.round(Math.random()*5000)), 'color': '#'+Math.random().toString(16).substr(-6)});
-}
-
-base_image = new Image();
-		base_image.src = 'MapNoPath.png';
-	  	//base_image.onload = function(){
-	    
-
-setInterval(function() {
-	redraw();
-	
-	for (var i = 0; i < runners.length; i++) {
-		runners[i].circle.move(10);
-		drawObject(runners[i].circle, runners[i].color);
-	}
-	
-}, 10);
 
 function redraw() {
 	ctx.fillStyle = "#ffffff";
@@ -116,8 +129,13 @@ function redraw() {
 }
 
 function drawObject(obj, col) {
-
-	ctx.fillStyle = col;
+    if (col == 0){
+    	ctx.fillStyle="blue";
+    } else if (col == 1) {
+    	ctx.fillStyle="red";
+    } else {
+    	ctx.fillStyle="green";
+    }
 
 	ctx.beginPath();
 	ctx.arc(obj.x(), obj.y(), 10, 0, Math.PI * 2, true);
@@ -125,3 +143,14 @@ function drawObject(obj, col) {
 	ctx.fill();
 
 }
+
+/////////////////////////////
+
+  function myFunction(company) {
+  	if (companiesActive[company] == false) {
+  		companiesActive[company] = true;
+  	} else {companiesActive[company] = true;}
+  	
+  } 
+
+
