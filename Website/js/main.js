@@ -8,10 +8,10 @@ $(window).scroll(function() {
 	if($(window).scrollTop() > 0) {
 		var ypos = $(window).scrollTop(); 
 		$('.count-down').css('top',500-ypos);
-		$('.team-section').css('top',1200-ypos);
-		$('.league-section').css('top',1600-ypos);
-		$('.compete-section').css('top',2000-ypos);
-		$('.teams-section').css('top',2400-ypos);
+		$('.league-section').css('top',1200-ypos);
+		$('.team-section').css('top',1600-ypos);
+		$('.compete-section').css('top',2400-ypos);
+		$('.teams-section').css('top',2000-ypos);
 		$('.arrow').css('top',2000-ypos);
 	}
 }); 
