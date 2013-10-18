@@ -41,7 +41,7 @@ base_image = new Image();
 		base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
 
-$.getJSON( "random.json", function( data ) {
+$.getJSON( "random1000.json", function( data ) {
 		
 
 		  ctx.beginPath();
