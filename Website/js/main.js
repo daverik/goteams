@@ -42,12 +42,32 @@ $('.searchbox').keyup(function(e) {
 			//console.log(data);
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
+			
+			// Team results
 			for(var i = 0; i < msg.teams.length; i++) {
 				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.teams[i]+"</a></li>");				
 			}
 			$('.search-item').click(function() {
 				loadTeamPage($(this).find('a').html().trim());
 			});
+			
+			// League results
+			for(var i = 0; i < msg.leagues.length; i++) {
+                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.leagues[i]+"</a></li>");                
+            }
+            $('.search-item').click(function() {
+                loadLeaguePage($(this).find('a').html().trim());
+            });
+            
+            // First name results
+            for(var i = 0; i < msg.firstnames.length; i++) {
+                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.firstnames[i]+"</a></li>");                
+            }
+            
+            // Last name results
+            for(var i = 0; i < msg.lastnames.length; i++) {
+                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.lastnames[i]+"</a></li>");                
+            }
 		}
 	});
 });
