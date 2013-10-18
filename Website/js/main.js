@@ -43,8 +43,11 @@ $('.searchbox').keyup(function(e) {
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
 			for(var i = 0; i < msg.values.length; i++) {
-				$('.dropdown-menu').append("<li class='search-item'>"+msg.values[i]+"</li>");
+				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.values[i]+"</a></li>");				
 			}
+			$('.search-item').click(function() {
+				loadTeamPage($(this).find('a').html().trim());
+			});
 		}
 	});
 });
@@ -156,12 +159,15 @@ function loadTeamPage(team) {
 				var formData = {
 					team : team
 				};
+				console.log(team);
+				
 				$.ajax({
 					url : "server/getateam.php",
 					type : "POST",
 					data : formData,
 					success : function(data, textStatus, jqXHR) {
 						data = $.parseJSON(data);
+						console.log(data);
 						if (data) {
 
 							$.ajax({
