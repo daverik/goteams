@@ -45,26 +45,26 @@ $('.searchbox').keyup(function(e) {
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
 			
-			$('.dropdown-menu').append("<li class='search-breakpoint'>Teams</li>");
+			$('.dropdown-menu').append("<li class='search-breakpoint-teams'>Teams</li>");
 			// Team results
 			for(var i = 0; i < msg.teams.length; i++) {
-				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.teams[i]+"</a></li>");				
+				$('.dropdown-menu').append("<li class='search-item'><a class='team' href='#'>"+msg.teams[i]+"</a></li>");				
 			}
 			$('.search-item').click(function() {
-				loadTeamPage($(this).find('a').html().trim());
+				loadTeamPage($(this).find('a.team').html().trim());
 				$('.stuffToHide').hide();
 			});
 			
-			$('.dropdown-menu').append("<li class='search-breakpoint'>Leagues</li>");
+			$('.dropdown-menu').append("<li class='search-breakpoint-leagues'>Leagues</li>");
 			// League results
 			for(var i = 0; i < msg.leagues.length; i++) {
-                $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.leagues[i]+"</a></li>");                
+                $('.dropdown-menu').append("<li class='search-item'><a class='league' href='#'>"+msg.leagues[i]+"</a></li>");                
             }
             $('.search-item').click(function() {
-                loadLeaguePage($(this).find('a').html().trim());
+                loadLeaguePage($(this).find('a.league').html().trim());
             });
             
-            $('.dropdown-menu').append("<li class='search-breakpoint'>Runners</li>");
+            $('.dropdown-menu').append("<li class='search-breakpoint-runners'>Runners</li>");
             // Runner name results
             for(var i = 0; i < msg.names.length; i++) {
                 $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.names[i]+"</a></li>");                
