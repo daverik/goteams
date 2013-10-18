@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 17 okt 2013 kl 15:54
+-- Skapad: 18 okt 2013 kl 08:35
 -- Serverversion: 5.6.12-log
 -- PHP-version: 5.4.16
 
@@ -29,7 +29,7 @@ USE `lagvarvet`;
 --
 
 CREATE TABLE IF NOT EXISTS `feedpost` (
-  `dateofpost` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateofpost` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `poster` bigint(20) NOT NULL DEFAULT '0',
   `teamofpost` varchar(32) NOT NULL DEFAULT '',
   `textpost` varchar(8000) DEFAULT NULL,
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `feedpost` (
 --
 
 INSERT INTO `feedpost` (`dateofpost`, `poster`, `teamofpost`, `textpost`) VALUES
-('2013-10-17 17:52:26', 8910152142, 'IxD Grupp 5', 'Hysén!! Vilken ängel'),
-('2013-10-17 17:52:26', 8911232415, 'IxD Grupp 5', 'Idag gick det jäkligt bra!'),
-('2013-10-17 17:52:26', 9010242142, 'IxD Grupp 5', 'Laoshi'),
-('2013-10-17 17:52:27', 8912112242, 'IxD Grupp 5', 'Men de va la roligt då'),
-('2013-10-17 17:52:27', 9003152142, 'IxD Grupp 5', 'AGGRESSION!');
+('0000-00-00 00:00:00', 8910152142, 'IxD Grupp 5', 'Hysén!! Vilken ängel'),
+('0000-00-00 00:00:00', 8911232415, 'IxD Grupp 5', 'Idag gick det jäkligt bra!'),
+('0000-00-00 00:00:00', 8912112242, 'IxD Grupp 5', 'Men de va la roligt då'),
+('0000-00-00 00:00:00', 9003152142, 'IxD Grupp 5', 'AGGRESSION!'),
+('0000-00-00 00:00:00', 9010242142, 'IxD Grupp 5', 'Laoshi');
 
 -- --------------------------------------------------------
 
@@ -106,116 +106,6 @@ CREATE TABLE IF NOT EXISTS `result` (
   PRIMARY KEY (`checkpoint`,`runnerpnr`),
   KEY `runnerpnr` (`runnerpnr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumpning av Data i tabell `result`
---
-
-INSERT INTO `result` (`checkpoint`, `timeresult`, `runnerpnr`, `points`) VALUES
-(5, 7731, 1004005938, 0),
-(5, 7162, 1123777130, 0),
-(5, 8611, 1135679594, 0),
-(5, 8285, 1330179376, 0),
-(5, 6777, 1334781536, 0),
-(5, 7939, 1335477475, 0),
-(5, 7388, 1337208094, 0),
-(5, 7352, 1581944009, 0),
-(5, 7657, 1678869589, 0),
-(5, 5852, 1732347098, 0),
-(5, 5784, 1858599029, 0),
-(5, 7325, 1997341984, 0),
-(5, 8172, 2367189797, 0),
-(5, 7132, 2549170561, 0),
-(5, 8059, 2638795718, 0),
-(5, 8735, 2650724177, 0),
-(5, 7693, 2873866787, 0),
-(5, 8523, 2910031320, 0),
-(5, 5932, 3042101658, 0),
-(5, 8500, 3153501347, 0),
-(5, 7953, 3539278155, 0),
-(5, 6622, 3627713605, 0),
-(5, 7812, 3723614040, 0),
-(5, 7620, 3797103827, 0),
-(5, 5462, 3964981727, 0),
-(5, 6266, 4033702013, 0),
-(5, 7702, 4083492907, 0),
-(5, 8964, 4233534078, 0),
-(5, 5507, 4259630413, 0),
-(5, 5625, 4321546739, 0),
-(5, 6225, 4440180598, 0),
-(5, 8492, 4503759592, 0),
-(5, 6928, 4574287171, 0),
-(5, 8887, 4610381963, 0),
-(5, 6277, 4612616243, 0),
-(5, 6889, 4754820676, 0),
-(5, 8902, 4867180503, 0),
-(5, 8516, 4994296187, 0),
-(5, 7200, 5189826639, 0),
-(5, 6067, 5310431292, 0),
-(5, 5416, 5329252470, 0),
-(5, 6195, 5402837382, 0),
-(5, 6783, 5462513793, 0),
-(5, 5905, 5552689144, 0),
-(5, 8006, 5746380819, 0),
-(5, 6429, 5862766151, 0),
-(5, 5433, 5864323825, 0),
-(5, 6561, 6126924847, 0),
-(5, 7021, 6317531538, 0),
-(5, 8535, 6429605379, 0),
-(5, 7966, 6458015497, 0),
-(5, 5543, 6547878894, 0),
-(5, 8424, 6697004782, 0),
-(5, 8077, 6708341442, 0),
-(5, 6885, 6891800557, 0),
-(5, 7866, 7006563087, 0),
-(5, 6457, 7043685891, 0),
-(5, 5765, 7119486655, 0),
-(5, 8543, 7140196095, 0),
-(5, 8919, 7166124678, 0),
-(5, 6064, 7208581847, 0),
-(5, 6377, 7259666988, 0),
-(5, 6314, 7311584786, 0),
-(5, 5549, 7484925001, 0),
-(5, 6761, 7575884680, 0),
-(5, 8719, 7607132521, 0),
-(5, 5817, 7641761246, 0),
-(5, 7671, 7657199713, 0),
-(5, 6877, 7675871930, 0),
-(5, 8915, 7874715997, 0),
-(5, 6734, 7988350121, 0),
-(5, 7592, 8078735551, 0),
-(5, 8785, 8117678880, 0),
-(5, 7704, 8145819887, 0),
-(5, 8064, 8216285400, 0),
-(5, 8221, 8238437317, 0),
-(5, 5902, 8251721554, 0),
-(5, 7091, 8320106231, 0),
-(5, 7000, 8425580162, 0),
-(5, 7942, 8448172560, 0),
-(5, 5676, 8507026644, 0),
-(5, 5439, 8604025824, 0),
-(5, 6906, 8679117701, 0),
-(5, 7154, 8743358548, 0),
-(5, 6435, 8767076938, 0),
-(5, 7222, 8892183016, 0),
-(5, 7086, 8910152142, 0),
-(5, 7802, 8911232415, 0),
-(5, 7441, 8912112242, 0),
-(5, 5735, 9003152142, 0),
-(5, 6193, 9010242142, 0),
-(5, 8576, 9103924884, 0),
-(5, 6709, 9113239631, 0),
-(5, 6152, 9297414688, 0),
-(5, 7449, 9387041220, 0),
-(5, 6015, 9454118782, 0),
-(5, 6260, 9567067751, 0),
-(5, 6998, 9655051875, 0),
-(5, 7854, 9664686074, 0),
-(5, 6607, 9669367805, 0),
-(5, 6487, 9730587122, 0),
-(5, 5713, 9735900227, 0),
-(5, 8673, 9768047473, 0),
-(5, 8152, 9823496926, 0);
 
 -- --------------------------------------------------------
 
@@ -331,11 +221,11 @@ INSERT INTO `runner` (`pnr`, `username`, `userpw`, `firstname`, `lastname`, `use
 (8743358548, 'Tana', 'YUC94OES9WW', 'Tana', 'Franklin', 'tellus. Phasellus elit', 41, 0, 'Malmö', ''),
 (8767076938, 'Hope', 'INN06MCL3YK', 'Hope', 'Eaton', 'ut nisi a odio', 2, 0, 'Stockholm', ''),
 (8892183016, 'Jasper', 'FNA60VVC1XG', 'Jasper', 'Obrien', 'Phasellus dapibus quam quis diam. Pellentesque', 6, 0, 'Stockholm', ''),
-(8910152142, 'wiltord', 'pw', 'Viktor', 'Swantesson', 'hejhej det är jag som är Viktor', 23125, 0, 'Göteborg', ''),
-(8911232415, 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', 23126, 0, 'Göteborg', ''),
-(8912112242, 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', 23128, 0, 'Göteborg', ''),
-(9003152142, 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', 23127, 0, 'Göteborg', ''),
-(9010242142, 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', 23124, 0, 'Göteborg', ''),
+(8910152142, 'wiltord', 'pw', 'Viktor', 'Swantesson', 'hejhej det är jag som är Viktor', 23125, 0, 'Göteborg', 'viktor.jpg'),
+(8911232415, 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', 23126, 0, 'Göteborg', 'david.jpg'),
+(8912112242, 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', 23128, 0, 'Göteborg', 'martin.jpg'),
+(9003152142, 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', 23127, 0, 'Göteborg', 'daniel.jpg'),
+(9010242142, 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', 23124, 0, 'Göteborg', 'victor.jpg'),
 (9103924884, 'Shana', 'OBR73XEY8HL', 'Shana', 'Stokes', 'diam lorem, auctor quis,', 16, 0, 'Stockholm', ''),
 (9113239631, 'Gillian', 'JPU70GBO3HE', 'Gillian', 'Wall', 'odio. Etiam ligula tortor, dictum', 72, 0, 'Göteborg', ''),
 (9297414688, 'Madison', 'EKF27UMQ8PP', 'Madison', 'Day', 'ornare', 74, 0, 'Göteborg', ''),
