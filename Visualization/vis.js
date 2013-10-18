@@ -42,32 +42,42 @@ base_image = new Image();
 	  	//base_image.onload = function(){
 
 $.getJSON( "random1000.json", function( data ) {
+		ctx.beginPath();
+		ctx.moveTo(p1.x,p1.y);
+		ctx.lineTo(p2.x,p2.y);
+		ctx.stroke();
+				
+		var t = 0;
 		
+		for (var i = 0; i < data.ble.length; i++) {
+			circ[i] = new Circle(data.ble[i].time/10);
+		}
+		console.log(circ.length);
+		setInterval(function() {
+		redraw();
+		var skip = [];
 
-		  ctx.beginPath();
-		  ctx.moveTo(p1.x,p1.y);
-		  ctx.lineTo(p2.x,p2.y);
-		  ctx.stroke();
-			
-		  var t = 0;
-		  
-		  for (var i = 0; i < data.ble.length; i++) {
-		  	circ[i] = new Circle(data.ble[i].time);
-		  }
-		  
-		
-		  setInterval(function() {
-		    redraw();
-		     
-		    for (var i = 0; i < circ.length; i++) {
-		  		circ[i].move(10);
-		  		if (companiesActive[data.ble[i].company] == true) {
-		  			drawObject(circ[i], data.ble[i].company);
-		  		}
-		  	}
-		  }, 10);
-	  
-	});	
+		for (var i = 0; i < circ.length; i++) {
+			if(!include(skip, i)){
+				var radius = 10;
+				for(var j = 0; j < circ.length; j++){
+					if(j != i){
+						if(Math.abs(circ[i].position.x - circ[j].position.x) < 10 
+							&& Math.abs(circ[i].position.y - circ[j].position.y) < 10){
+							skip.push(j);
+							radius = 20;
+						}
+					}
+				}
+				circ[i].move(10);
+				if(companiesActive[data.ble[i].company]) {
+					drawObject(circ[i], data.ble[i].company, radius);
+				}
+				radius = 10;
+			}
+		} skip.splice(0, skip.length);
+	}, 10);
+});	
 
 function Circle(endTime) {
 	this.endTime = endTime;
@@ -119,38 +129,47 @@ function Circle(endTime) {
 	};
 }
 
+base_image = new Image();
+		//base_image.src = 'MapNoPath.png';
+	  	//base_image.onload = function(){
+	    
+function include(list, elm) {
+	for(var i = 0; i < list.length; i++) {
+		if (list[i] == elm){
+			list.splice(i, 1);
+			return true;
+       	} else {
+       		return false;
+       	}
+   	} return false;
+}
 
 function redraw() {
 	ctx.fillStyle = "#ffffff";
 	if(base_image){
 		ctx.drawImage(base_image, 0, 0);
 	}
-
 }
 
-function drawObject(obj, col) {
-    if (col == 0){
-    	ctx.fillStyle="blue";
-    } else if (col == 1) {
-    	ctx.fillStyle="red";
-    } else {
-    	ctx.fillStyle="green";
-    }
-
+function drawObject(obj, col, rad) {
+	if(col == 0){
+		ctx.fillStyle = "#00ff00";
+	} else if (col == 1){
+		ctx.fillStyle = "#ffff00";
+	} else {
+		ctx.fillStyle = "#0000ff";
+	}
+	
 	ctx.beginPath();
-	ctx.arc(obj.x(), obj.y(), 10, 0, Math.PI * 2, true);
+	ctx.arc(obj.x(), obj.y(), rad, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fill();
 
 }
 
-/////////////////////////////
-
-  function myFunction(company) {
+function myFunction(company) {
   	if (companiesActive[company] == false) {
   		companiesActive[company] = true;
   	} else {companiesActive[company] = false;}
   	
-  } 
-
-
+}
