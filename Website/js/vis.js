@@ -68,26 +68,26 @@ $.getJSON( "js/random1000.json", function( data ) {
 		
 		for (var i = 0; i < circ.length; i++) {
 			if(!include(skip, i)){
-				var radius = 10;
+				var radius = 2;
 				for(var j = 0; j < circ.length; j++){
 					if(j != i){
 						if(Math.abs(circ[i].position.x - circ[j].position.x) < 30 
 							&& Math.abs(circ[i].position.y - circ[j].position.y) < 30){
 							skip.push(j);
-							if (radius <= 50) {
+							if (radius <= 30) {
 								radius = radius + 0.1;
 							} else {break;}
 						}
 					}
 				}
-				circ[i].move(10);
+				circ[i].move(1);
 				//if(companiesActive[data.ble[i].company]) {
 					drawObject(circ[i], data.ble[i].company, radius);
 				//}
 				radius = 10;
 			}
 		} skip.splice(0, skip.length);
-	}, 10);
+	}, 30);
 });	
 
 function Circle(endTime) {
@@ -173,7 +173,6 @@ function drawObject(obj, col, rad) {
 	}
 	  */
 	ctx.fillStyle = "#3498DB";
-	
 	ctx.beginPath();
 	ctx.arc(obj.x(), obj.y(), rad, 0, Math.PI * 2, true);
 	ctx.closePath();
