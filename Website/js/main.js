@@ -8,10 +8,10 @@ $(window).scroll(function() {
 	if($(window).scrollTop() > 0) {
 		var ypos = $(window).scrollTop(); 
 		$('.count-down').css('top',500-ypos);
-		$('.team-section').css('top',1200-ypos);
-		$('.league-section').css('top',1600-ypos);
-		$('.compete-section').css('top',2000-ypos);
-		$('.teams-section').css('top',2400-ypos);
+		$('.league-section').css('top',1200-ypos);
+		$('.team-section').css('top',1600-ypos);
+		$('.compete-section').css('top',2400-ypos);
+		$('.teams-section').css('top',2000-ypos);
 		$('.arrow').css('top',2000-ypos);
 	}
 }); 
@@ -30,6 +30,7 @@ $('.searchbox').keyup(function(e) {
 	if(!$('.search-dropdown').hasClass('open')) {
 		$('.search-dropdown').addClass('open');
 	}
+	$('.dropdown-menu').html('');
 	var formData = {
 		value : $('.searchbox').val()
 	};	
@@ -38,8 +39,12 @@ $('.searchbox').keyup(function(e) {
 		type : "POST",
 		data : formData,
 		success : function(data, textStatus, jqXHR) {
+			//console.log(data);
 			var msg = $.parseJSON(data);
-			console.log(msg.value);
+			//console.log(msg.values);
+			for(var i = 0; i < msg.values.length; i++) {
+				$('.dropdown-menu').append("<li class='search-item'>"+msg.values[i]+"</li>");
+			}
 		}
 	});
 });
@@ -167,7 +172,12 @@ function loadTeamPage(team) {
 									data = $.parseJSON(data);
 									if (data) {
 										for (var i = 0; i < data.posts.length; i++) {
-											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="../img/default-avatar.png" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
+											var img = data.posts[i].picture;
+											if(!img || img == "") {
+												img = "default-avatar.png";
+											}
+											img = "../img/avatar/"+img;
+											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="'+img+'" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
 										}
 									}
 								}

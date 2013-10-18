@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     $dbcnx = @mysql_connect("localhost", "root", "root");
     mysql_select_db("lagvarvet", $dbcnx);
     mysql_query ('SET NAMES UTF8;');
@@ -6,6 +8,7 @@
     mysql_client_encoding($dbcnx);
     
     $enteredTeam = $_POST['team'];
+    $_SESSION['team'] = $enteredTeam;
     
     $qDesc = mysql_query("SELECT teaminfo FROM team WHERE '$enteredTeam' = title;");
     $description = mysql_result($qDesc, 0);
