@@ -42,8 +42,8 @@ $('.searchbox').keyup(function(e) {
 			//console.log(data);
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
-			for(var i = 0; i < msg.values.length; i++) {
-				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.values[i]+"</a></li>");				
+			for(var i = 0; i < msg.teams.length; i++) {
+				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.teams[i]+"</a></li>");				
 			}
 			$('.search-item').click(function() {
 				loadTeamPage($(this).find('a').html().trim());
