@@ -83,27 +83,48 @@ function Circle(endTime) {
 }
 
 var runners = [];
-runners.push({'circle':new Circle(4000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(5000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(6000), 'color': '#'+Math.random().toString(16).substr(-6)});
-runners.push({'circle':new Circle(7000), 'color': '#'+Math.random().toString(16).substr(-6)});
 
-for(var i = 0; i < 40; i++) {
-  runners.push({'circle':new Circle(6000+Math.round(Math.random()*5000)), 'color': '#'+Math.random().toString(16).substr(-6)});
+for(var i = 0; i < 20; i++) {
+  runners.push({'circle':new Circle(100000+Math.round(Math.random()*5000)), 'color': '#'+Math.random().toString(16).substr(-6)});
 }
 
 base_image = new Image();
 		base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
 	    
+function include(list, elm) {
+	for(var i = 0; i < list.length; i++) {
+		if (list[i] == elm){
+			list.splice(i, 1);
+			return true;
+       	} else {
+       		return false;
+       	}
+   	} return false;
+}
 
 setInterval(function() {
 	redraw();
+	var skip = [];
 	
 	for (var i = 0; i < runners.length; i++) {
-		runners[i].circle.move(10);
-		drawObject(runners[i].circle, runners[i].color);
-	}
+		if(!include(skip, i)){
+			var radius = 10;
+			for(var j = 0; j < runners.length; j++){
+				if(j != i){
+					if(Math.abs(runners[i].circle.position.x - runners[j].circle.position.x) < 10 
+						&& Math.abs(runners[i].circle.position.y - runners[j].circle.position.y) < 10){
+						skip.push(j);
+						radius = 20;
+						console.log("CLOSE");
+					}
+				}
+			}
+			runners[i].circle.move(10);
+			drawObject(runners[i].circle, runners[i].color, radius);
+			radius = 10;
+		}
+	} skip.splice(0, skip.length);
 	
 }, 10);
 
@@ -112,15 +133,14 @@ function redraw() {
 	if(base_image){
 		ctx.drawImage(base_image, 0, 0);
 	}
-
 }
 
-function drawObject(obj, col) {
+function drawObject(obj, col, rad) {
 
 	ctx.fillStyle = col;
 
 	ctx.beginPath();
-	ctx.arc(obj.x(), obj.y(), 10, 0, Math.PI * 2, true);
+	ctx.arc(obj.x(), obj.y(), rad, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fill();
 
