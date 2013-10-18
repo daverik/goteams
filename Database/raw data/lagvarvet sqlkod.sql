@@ -1,3 +1,4 @@
+drop table feedpost;
 drop table teamsquad;
 drop table leaguemembers;
 drop table result;
@@ -37,10 +38,9 @@ create table result(
 	checkpoint int NOT NULL,
 	timeresult int NOT NULL,
 	runnerpnr bigint NOT NULL,
-	runnerid int,
+	points int,
 	primary key (checkpoint, runnerpnr),
-	foreign key (runnerpnr) references runner(pnr),
-	foreign key (runnerid) references runner(runnerid)
+	foreign key (runnerpnr) references runner(pnr)
 );
 
 create table teamsquad(
@@ -60,7 +60,7 @@ create table leaguemembers(
 );
 
 create table feedpost(
-	dateofpost char(8),
+	dateofpost datetime default NOW(),
 	poster bigint,
 	teamofpost varchar(32),
 	textpost varchar(8000),

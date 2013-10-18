@@ -1,13 +1,15 @@
+/* "Real" runners */
 INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9010242142', 'victor', 'pw', 'Victor', 'Karlsson', 'hejhej det är jag som är Victor', '23124', '0', 'Göteborg', '');
 INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8910152142', 'wiltord', 'pw', 'Viktor', 'Swantesson', 'hejhej det är jag som är Viktor', '23125', '0', 'Göteborg', '');
 INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8911232415', 'friskydingo', 'pw', 'David', 'Eriksson', 'hejhej det är jag som är David', '23126', '0', 'Göteborg', '');
 INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('9003152142', 'daniel', 'pw', 'Daniel', 'Gunnarsson', 'hejhej det är jag som är Daniel', '23127', '0', 'Göteborg', '');
 INSERT INTO runner (pnr, username, userpw, firstname, lastname, userinfo, runnerid, points, city, picture) VALUES ('8912112242', 'ohls', 'pw', 'Martin', 'Ohls', 'hejhej det är jag som är Martin', '23128', '0', 'Göteborg', '');
+
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8448172560,"Moses","YAD75HTZ8ZD","Moses","Dominguez","In",1, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8767076938,"Hope","INN06MCL3YK","Hope","Eaton","ut nisi a odio",2, '0', 'Stockholm', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (287386678,"Nehru","IRA04JRR5OZ","Nehru","Swanson","Pellentesque",3, '0', 'Stockholm', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (2873866787,"Nehru","IRA04JRR5OZ","Nehru","Swanson","Pellentesque",3, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (5329252470,"Katell","HDR15OBU3CC","Katell","Benson","Sed",4, '0', 'Stockholm', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (965505187,"Abdul","EKD89HAV3OC","Abdul","Casey","Mauris non dui nec urna",5, '0', 'Stockholm', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (9655051875,"Abdul","EKD89HAV3OC","Abdul","Casey","Mauris non dui nec urna",5, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8892183016,"Jasper","FNA60VVC1XG","Jasper","Obrien","Phasellus dapibus quam quis diam. Pellentesque",6, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (4259630413,"Orla","EXS16AYU4WA","Orla","Todd","lectus pede et risus. Quisque libero lacus, varius et, euismod",7, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (3042101658,"Karyn","MMK98NIN1TR","Karyn","Walter","Duis",8, '0', 'Stockholm', '');
@@ -30,7 +32,7 @@ INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1135679594,"Kendall","RWM08EPS9NL","Kendall","Mitchell","eu augue porttitor interdum. Sed auctor",25, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (4754820676,"Beau","GDL32YVZ3YR","Beau","Mercer","bibendum. Donec felis",26, '0', 'Stockholm', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (2367189797,"Kaden","FGP07JPJ9CQ","Kaden","Sanford","mus. Proin",27, '0', 'Stockholm', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (133478153,"Mason","AFR18YXL7ER","Mason","Browning","Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis",28, '0', 'Malmö', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1334781536,"Mason","AFR18YXL7ER","Mason","Browning","Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis",28, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (6547878894,"Cullen","GXQ63LYF1ZF","Cullen","Faulkner","natoque penatibus et magnis dis",29, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (3627713605,"Alexander","FEB83JYK7PQ","Alexander","Simmons","nec urna suscipit nonummy. Fusce fermentum fermentum",30, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (4440180598,"Yolanda","GVU43AFR4OW","Yolanda","Perry","convallis erat, eget tincidunt dui augue eu",31, '0', 'Malmö', '');
@@ -40,8 +42,8 @@ INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8425580162,"Gavin","KDM20TEN0JL","Gavin","Quinn","consectetuer rhoncus. Nullam",35, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1997341984,"Shafira","JQL11XTW5PH","Shafira","Velasquez","ipsum non arcu. Vivamus sit amet risus. Donec",36, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (6708341442,"Adrienne","FMV67FLM1QW","Adrienne","Mckenzie","In nec orci. Donec nibh. Quisque nonummy ipsum",37, '0', 'Malmö', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (700656308,"Aiko","IMQ03JHG5YL","Aiko","Carroll","vitae risus. Duis a mi fringilla mi lacinia mattis. Integer",38, '0', 'Malmö', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (586432382,"Zephania","XGB82VQV2SE","Zephania","Craft","et magnis dis parturient montes, nascetur ridiculus",39, '0', 'Malmö', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (7006563087,"Aiko","IMQ03JHG5YL","Aiko","Carroll","vitae risus. Duis a mi fringilla mi lacinia mattis. Integer",38, '0', 'Malmö', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (5864323825,"Zephania","XGB82VQV2SE","Zephania","Craft","et magnis dis parturient montes, nascetur ridiculus",39, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (6891800557,"Althea","EGT82HCK4DH","Althea","Dominguez","ut, molestie in, tempus eu, ligula. Aenean",40, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8743358548,"Tana","YUC94OES9WW","Tana","Franklin","tellus. Phasellus elit",41, '0', 'Malmö', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1581944009,"Audrey","YFH82BOM5LK","Audrey","Berger","mus. Proin vel nisl.",42, '0', 'Malmö', '');
@@ -71,7 +73,7 @@ INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1330179376,"Ignacia","DEI70EVL0UF","Ignacia","Dennis","mauris, aliquam eu,",67, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1678869589,"Camden","BZF24RWT9AW","Camden","Mcleod","dui, semper",68, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8117678880,"James","WHU46JNX0SZ","James","Macdonald","dapibus",69, '0', 'Göteborg', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (867911770,"Fulton","SKS89DMO3HK","Fulton","Levine","a neque. Nullam ut nisi a odio",70, '0', 'Göteborg', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8679117701,"Fulton","SKS89DMO3HK","Fulton","Levine","a neque. Nullam ut nisi a odio",70, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (2638795718,"Wing","PBM16OIF6LX","Wing","Odonnell","Donec",71, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (9113239631,"Gillian","JPU70GBO3HE","Gillian","Wall","odio. Etiam ligula tortor, dictum",72, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (1337208094,"Colt","ZEX94CLD6JN","Colt","Ray","eu nulla at",73, '0', 'Göteborg', '');
@@ -85,11 +87,11 @@ INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (5746380819,"Joan","YKT81MJQ2FW","Joan","Wallace","natoque penatibus et magnis dis",81, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (7484925001,"Nell","DHG40PXW7MV","Nell","Wade","risus. In",82, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (7119486655,"Tara","JSV31UHC9BG","Tara","Mclean","mi enim, condimentum",83, '0', 'Göteborg', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (807873555,"Casey","SGS99RUW8NG","Casey","Castro","rutrum lorem ac risus. Morbi metus.",84, '0', 'Göteborg', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (540283738,"Knox","LHT81ICU3EN","Knox","Hickman","lorem, eget mollis lectus pede et risus.",85, '0', 'Göteborg', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8078735551,"Casey","SGS99RUW8NG","Casey","Castro","rutrum lorem ac risus. Morbi metus.",84, '0', 'Göteborg', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (5402837382,"Knox","LHT81ICU3EN","Knox","Hickman","lorem, eget mollis lectus pede et risus.",85, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (7259666988,"Mona","ZCJ72HNK2PW","Mona","Benson","nec ligula consectetuer rhoncus. Nullam velit",86, '0', 'Göteborg', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (461038196,"Richard","SWM34SUW4NW","Richard","Howell","enim mi tempor lorem, eget mollis",87, '0', 'Göteborg', '');
-INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (966468607,"Larissa","AAU77PHT6JM","Larissa","Alston","feugiat tellus lorem eu metus.",88, '0', 'Göteborg', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (4610381963,"Richard","SWM34SUW4NW","Richard","Howell","enim mi tempor lorem, eget mollis",87, '0', 'Göteborg', '');
+INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (9664686074,"Larissa","AAU77PHT6JM","Larissa","Alston","feugiat tellus lorem eu metus.",88, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (6317531538,"Brooke","OZF31HQP9SQ","Brooke","Pittman","et",89, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (9669367805,"Kibo","FWT14IYL4OZ","Kibo","Bell","nec metus facilisis lorem tristique",90, '0', 'Göteborg', '');
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (8216285400,"Channing","CGF83XHC9HI","Channing","Sharp","et pede. Nunc sed orci lobortis augue scelerisque",91, '0', 'Göteborg', '');
@@ -104,7 +106,6 @@ INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo
 INSERT INTO `runner` (`pnr`,`username`,`userpw`,`firstname`,`lastname`,`userinfo`,`runnerid`, points, city, picture) VALUES (7208581847,"Ashely","COJ33HOV7JY","Ashely","Duncan","sem",100, '0', 'Göteborg', '');
 
 
-INSERT INTO team (title, teaminfo, dateofcreation, openteam) VALUES ('IxD Grupp 5', 'Grupp 5', "10042013", 0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Natoque Penatibus Foundation","Public Relations","24012013",0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Erat LLP","Asset Management","26022013",0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Orci Corporation","Finances","26062014",0);
@@ -129,8 +130,8 @@ INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Tur
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Dolor Sit Foundation","Asset Management","14042013",0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Sollicitudin Corporation","Media Relations","05072014",0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Vel Est Foundation","Public Relations","01012014",0);
-
-
+/* "Real" teams*/
+INSERT INTO team (title, teaminfo, dateofcreation, openteam) VALUES ('IxD Grupp 5', 'Grupp 5', "10042013", 0);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Chalmers","Spring för Chalmers!","01012014",1);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("GU","Spring för GU!","01012014",1);
 INSERT INTO `team` (`title`,`teaminfo`,`dateofcreation`,`openteam`) VALUES ("Volvo","Spring för Volvo!","01012014",1);
@@ -165,10 +166,21 @@ INSERT INTO `teamsquad`(`runnerpnr`, `teamtitle`) VALUES ('8912112242','Rädda B
 INSERT INTO `teamsquad`(`runnerpnr`, `teamtitle`) VALUES ('8912112242','Gais');
 INSERT INTO `teamsquad`(`runnerpnr`, `teamtitle`) VALUES ('8912112242','Chalmers');
 
-INSERT INTO `league`(`title`, `leagueinfo`) VALUES ('Chalmers-ligan','Chalmers-ligan!');
-INSERT INTO `leaguemembers`(`teamtitle`, `leaguetitle`) VALUES ('IxD Grupp 5','Chalmers-ligan');
 
+INSERT INTO `league`(`title`, `leagueinfo`) VALUES ('Chalmers-ligan','Chalmers-ligan!');
 INSERT INTO `league`(`title`, `leagueinfo`) VALUES ('Stadskampen','Stadskampen!');
+
+
 INSERT INTO `leaguemembers`(`teamtitle`, `leaguetitle`) VALUES ('Göteborg','Stadskampen');
 INSERT INTO `leaguemembers`(`teamtitle`, `leaguetitle`) VALUES ('Falköping','Stadskampen');
 INSERT INTO `leaguemembers`(`teamtitle`, `leaguetitle`) VALUES ('Skövde','Stadskampen');
+INSERT INTO `leaguemembers`(`teamtitle`, `leaguetitle`) VALUES ('IxD Grupp 5','Chalmers-ligan');
+
+
+INSERT INTO `feedpost`(poster, teamofpost, textpost) VALUES ('9010242142', 'IxD Grupp 5', 'Laoshi');
+INSERT INTO `feedpost`(poster, teamofpost, textpost) VALUES ('8910152142', 'IxD Grupp 5', 'Hysén!! Vilken ängel');
+INSERT INTO `feedpost`(poster, teamofpost, textpost) VALUES ('8911232415', 'IxD Grupp 5', 'Idag gick det jäkligt bra!');
+INSERT INTO `feedpost`(poster, teamofpost, textpost) VALUES ('9003152142', 'IxD Grupp 5', 'AGGRESSION!');
+INSERT INTO `feedpost`(poster, teamofpost, textpost) VALUES ('8912112242', 'IxD Grupp 5', 'Men de va la roligt då');
+
+/* Result data in separate resultsscript.php file. */
