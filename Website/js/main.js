@@ -170,9 +170,10 @@ function loadTeamPage(team) {
 								data : formData,
 								success : function(data, textStatus, jqXHR) {
 									data = $.parseJSON(data);
+									console.log(data);
 									if (data) {
 										for (var i = 0; i < data.posts.length; i++) {
-											var img = data.posts[i].picture;
+											var img = data.posts[i].avatar;
 											if(!img || img == "") {
 												img = "default-avatar.png";
 											}
