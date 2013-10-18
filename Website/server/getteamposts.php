@@ -22,7 +22,7 @@
         $text = $row["textpost"];
         
         $str .= '"name": "'.$fname.' '.$lname.'", ';
-        $str .= '"avatar" : "", ';
+        $str .= '"avatar" : "'.$pic.'", ';
         $str .= '"text" : "'.$text.'"}, {';
     }
     $str = substr($str,0,strlen($str)-3);
