@@ -1,20 +1,21 @@
 var loggedIn = false;
 
 $(function() {
-	$('.map-start').load('pages/map.html', function() {});
+	$('.map-start').load('pages/map.html', function() {
+	});
 });
 
 $(window).scroll(function() {
-	if($(window).scrollTop() > 0) {
-		var ypos = $(window).scrollTop(); 
-		$('.count-down').css('top',500-ypos);
-		$('.league-section').css('top',1200-ypos);
-		$('.team-section').css('top',1600-ypos);
-		$('.compete-section').css('top',2400-ypos);
-		$('.teams-section').css('top',2000-ypos);
-		$('.arrow').css('top',2000-ypos);
+	if ($(window).scrollTop() > 0) {
+		var ypos = $(window).scrollTop();
+		$('.count-down').css('top', 500 - ypos);
+		$('.league-section').css('top', 1200 - ypos);
+		$('.team-section').css('top', 1600 - ypos);
+		$('.compete-section').css('top', 2400 - ypos);
+		$('.teams-section').css('top', 2000 - ypos);
+		$('.arrow').css('top', 2000 - ypos);
 	}
-}); 
+});
 
 $('#logIn').click(function() {
 	$("#login-dropdown").slideToggle();
@@ -26,14 +27,15 @@ function removeActiveNavClasses() {
 	$("#nav-leagues").removeClass("active");
 }
 
+
 $('.searchbox').keyup(function(e) {
-	if(!$('.search-dropdown').hasClass('open')) {
+	if (!$('.search-dropdown').hasClass('open')) {
 		$('.search-dropdown').addClass('open');
 	}
 	$('.dropdown-menu').html('');
 	var formData = {
 		value : $('.searchbox').val()
-	};	
+	};
 	$.ajax({
 		url : "server/search.php",
 		type : "POST",
@@ -42,23 +44,28 @@ $('.searchbox').keyup(function(e) {
 			//console.log(data);
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
-			for(var i = 0; i < msg.values.length; i++) {
-				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.values[i]+"</a></li>");				
+			for (var i = 0; i < msg.values.length; i++) {
+				$('.dropdown-menu').append("<li class='search-item'><a href='#'>" + msg.values[i] + "</a></li>");
 			}
 			$('.search-item').click(function() {
 				loadTeamPage($(this).find('a').html().trim());
+				$('.stuffToHide').hide();
 			});
 		}
 	});
 });
 
-
 $('#nav-map-link').click(function() {
+	var container;
+
 	if (loggedIn) {
-		$("#inner-container").load('pages/map.html');
-		removeActiveNavClasses();
-		$("#nav-map").addClass("active");
+		container = "#inner-container";
+	} else {
+		container = ".map-start"
 	}
+	$(container).load('pages/map.html');
+	removeActiveNavClasses();
+	$("#nav-map").addClass("active");
 });
 
 $("#username").keyup(function(e) {
@@ -151,63 +158,69 @@ function loadLeagues() {
 
 function loadTeamPage(team) {
 
-	if (loggedIn) {
-		$("#inner-container").load('pages/teams.html', function() {
-			if (team) {
-				$('.page-info').hide();
-				$(".team-header").html("<h2>" + team + "</h2>");
-				var formData = {
-					team : team
-				};
-				console.log(team);
-				
-				$.ajax({
-					url : "server/getateam.php",
-					type : "POST",
-					data : formData,
-					success : function(data, textStatus, jqXHR) {
-						data = $.parseJSON(data);
-						console.log(data);
-						if (data) {
+	var container;
 
-							$.ajax({
-								url : "server/getteamposts.php",
-								type : "POST",
-								data : formData,
-								success : function(data, textStatus, jqXHR) {
-									data = $.parseJSON(data);
-									console.log(data);
-									if (data) {
-										for (var i = 0; i < data.posts.length; i++) {
-											var img = data.posts[i].avatar;
-											if(!img || img == "") {
-												img = "default-avatar.png";
-											}
-											img = "../img/avatar/"+img;
-											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="'+img+'" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
+	if (loggedIn) {
+		container = "#inner-container";
+	} else {
+		container = ".map-start"
+	}
+
+	$(container).load('pages/teams.html', function() {
+		if (team) {
+			$('.page-info').hide();
+			$(".team-header").html("<h2>" + team + "</h2>");
+			var formData = {
+				team : team
+			};
+			console.log(team);
+
+			$.ajax({
+				url : "server/getateam.php",
+				type : "POST",
+				data : formData,
+				success : function(data, textStatus, jqXHR) {
+					data = $.parseJSON(data);
+					console.log(data);
+					if (data) {
+
+						$.ajax({
+							url : "server/getteamposts.php",
+							type : "POST",
+							data : formData,
+							success : function(data, textStatus, jqXHR) {
+								data = $.parseJSON(data);
+								console.log(data);
+								if (data) {
+									for (var i = 0; i < data.posts.length; i++) {
+										var img = data.posts[i].avatar;
+										if (!img || img == "") {
+											img = "default-avatar.png";
 										}
+										img = "../img/avatar/" + img;
+										$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="' + img + '" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
 									}
 								}
-							});
-
-							$('.team-description').append(data.description);
-							var list = $('.team-members').find("ul");
-							if (data.members) {
-								for (var i = 0; i < data.members.length; i++) {
-									list.append("<li>" + data.members[i] + "</li>");
-								}
 							}
-							list.append("<li><a href='#'>+ Add team member</a></li>");
+						});
+
+						$('.team-description').append(data.description);
+						var list = $('.team-members').find("ul");
+						if (data.members) {
+							for (var i = 0; i < data.members.length; i++) {
+								list.append("<li>" + data.members[i] + "</li>");
+							}
 						}
+						list.append("<li><a href='#'>+ Add team member</a></li>");
 					}
-				});
-			} else {
-				$('.team-content').hide();
-			}
-		});
-		removeActiveNavClasses();
-		$("#nav-teams").addClass("active");
-	}
+				}
+			});
+		} else {
+			$('.team-content').hide();
+		}
+	});
+	removeActiveNavClasses();
+	$("#nav-teams").addClass("active");
 }
 
 function loadLeaguePage(league) {
@@ -257,7 +270,7 @@ $(document).mouseup(function(e) {
 	{
 		container.hide();
 	}
-	
+
 	container1 = $(".search-dropdown");
 	container2 = $(".searchbox");
 
@@ -266,5 +279,5 @@ $(document).mouseup(function(e) {
 	{
 		container1.removeClass('open');
 	}
-	
+
 });
