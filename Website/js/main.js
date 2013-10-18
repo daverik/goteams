@@ -43,6 +43,7 @@ $('.searchbox').keyup(function(e) {
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
 			
+			$('.dropdown-menu').append("<li class='search-breakpoint'>Teams</li>");
 			// Team results
 			for(var i = 0; i < msg.teams.length; i++) {
 				$('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.teams[i]+"</a></li>");				
@@ -51,6 +52,7 @@ $('.searchbox').keyup(function(e) {
 				loadTeamPage($(this).find('a').html().trim());
 			});
 			
+			$('.dropdown-menu').append("<li class='search-breakpoint'>Leagues</li>");
 			// League results
 			for(var i = 0; i < msg.leagues.length; i++) {
                 $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.leagues[i]+"</a></li>");                
@@ -59,6 +61,7 @@ $('.searchbox').keyup(function(e) {
                 loadLeaguePage($(this).find('a').html().trim());
             });
             
+            $('.dropdown-menu').append("<li class='search-breakpoint'>Runners</li>");
             // Runner name results
             for(var i = 0; i < msg.names.length; i++) {
                 $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.names[i]+"</a></li>");                
