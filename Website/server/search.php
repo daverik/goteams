@@ -1,17 +1,23 @@
 <?php
 	$value = $_POST['value'];
 	
-	$str = '{"values":["apa","bosse"]}';
+	$str = '{"values":["apa","apple","bosse"]}';
 	
-	$output = '{"value":""}';
+	$output = '{"values":[';
+	
+	if(strlen($value) > 1) {
+		
+	$pattern = '/'.$value.'*/';
 	
 	$json = json_decode($str);
 	foreach($json->values as $item)
 	{
-    	if($item == $value) {
-    		$output = '{"value":"'.apa.'"}';
+		preg_match($pattern, $item, $matches);
+   		if(sizeof($matches) > 0) {
+   			$output = $output.'"'.$item.'",';
    		}
 	}
-	echo $output;
-	
+	$output = substr($output,0,strlen($output)-1).']}';
+		echo $output;
+	}
 ?>

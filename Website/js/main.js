@@ -30,6 +30,7 @@ $('.searchbox').keyup(function(e) {
 	if(!$('.search-dropdown').hasClass('open')) {
 		$('.search-dropdown').addClass('open');
 	}
+	$('.dropdown-menu').html('');
 	var formData = {
 		value : $('.searchbox').val()
 	};	
@@ -38,8 +39,12 @@ $('.searchbox').keyup(function(e) {
 		type : "POST",
 		data : formData,
 		success : function(data, textStatus, jqXHR) {
+			//console.log(data);
 			var msg = $.parseJSON(data);
-			console.log(msg.value);
+			//console.log(msg.values);
+			for(var i = 0; i < msg.values.length; i++) {
+				$('.dropdown-menu').append("<li class='search-item'>"+msg.values[i]+"</li>");
+			}
 		}
 	});
 });
