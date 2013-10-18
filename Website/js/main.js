@@ -172,7 +172,12 @@ function loadTeamPage(team) {
 									data = $.parseJSON(data);
 									if (data) {
 										for (var i = 0; i < data.posts.length; i++) {
-											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="../img/default-avatar.png" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
+											var img = data.posts[i].picture;
+											if(!img || img == "") {
+												img = "default-avatar.png";
+											}
+											img = "../img/avatar/"+img;
+											$('.wall').append('<div class="row"><div class="col-md-2">' + '<img src="'+img+'" alt="Avatar" width="64" height="64" class="img-circle">' + '</div><div class="col-md-10"><h3>' + data.posts[i].name + '</h3>' + '<p class="post">' + data.posts[i].text + '</p></div></div>');
 										}
 									}
 								}

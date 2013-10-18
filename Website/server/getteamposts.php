@@ -13,7 +13,7 @@
 	
     $qTeam = mysql_query("SELECT textpost, firstname, lastname, picture FROM feedpost INNER JOIN runner ON poster = pnr WHERE teamofpost = '$team'");
     $str = '{"posts": [{';
-    
+	
     // Get values, format to json.
     while($row = mysql_fetch_array($qTeam)) {
         $fname = $row["firstname"];
