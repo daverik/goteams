@@ -49,7 +49,7 @@ base_image = new Image();
 		base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
 
-$.getJSON( "random1000.json", function( data ) {
+$.getJSON( "js/random1000.json", function( data ) {
 		ctx.beginPath();
 		ctx.moveTo(p1.x,p1.y);
 		ctx.lineTo(p2.x,p2.y);
