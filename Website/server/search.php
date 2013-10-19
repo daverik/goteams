@@ -31,6 +31,7 @@
         }
     }
     
+    // Same as getData, but deals with names with two parts, i.e. first and last name.
     function getDataName ($query, &$str) {
         while($row = mysql_fetch_array($query)) {
             $firstname = $row["firstname"];
@@ -40,7 +41,8 @@
         $str = substr($str,0,strlen($str)-1);
         $str .= ']}';
     }
-     
+    
+    // Same as regExData, but deals with names with two parts, i.e. first and last name.
     function regExDataName (&$output, $value, $str) {
         $added = false;
         if(strlen($value) > 0) {
