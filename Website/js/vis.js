@@ -117,7 +117,7 @@ $.getJSON( "js/random.json", function( data ) {
 		
 		for (var i = 0; i < circ.length; i++) {
 			if(!include(skip, i)){
-				var radius = 2;
+				var radius = 5;
 				for(var j = 0; j < circ.length; j++){
 					if(j != i){
 					    // Jämföra points istället för position?
@@ -125,7 +125,7 @@ $.getJSON( "js/random.json", function( data ) {
 							&& Math.abs(circ[i].position.y - circ[j].position.y) < 1){
 							skip.push(j);
 							if (radius <= 30) {
-								radius = radius + 0.1;
+								radius = radius + .3;
 							} else {break;}
 						}
 					}
