@@ -8,12 +8,12 @@ $(function() {
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 0) {
 		var ypos = $(window).scrollTop();
-		$('.count-down').css('top', 500 - ypos);
+		/*$('.count-down').css('top', 500 - ypos);
 		$('.league-section').css('top', 1200 - ypos);
 		$('.team-section').css('top', 1600 - ypos);
 		$('.compete-section').css('top', 2400 - ypos);
 		$('.teams-section').css('top', 2000 - ypos);
-		$('.arrow').css('top', 2000 - ypos);
+		$('.arrow').css('top', 2000 - ypos);*/
 	}
 });
 
@@ -183,10 +183,11 @@ function loadTeamPage(team) {
 	} else {
 		container = ".map-start"
 	}
+	
+	$('.page-info').hide();
 
 	$(container).load('pages/teams.html', function() {
 		if (team) {
-			$('.page-info').hide();
 			$(".team-header").html("<h2>" + team + "</h2>");
 			var formData = {
 				team : team
