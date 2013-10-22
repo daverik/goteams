@@ -15,7 +15,7 @@ var timeElapsed = 0;
 var seconds = 0;
 var minutes = 0;
 var updateFrequency = 30;
-
+var startGroup = 0;
 
 
 ctx.beginPath();
@@ -96,7 +96,7 @@ base_image = new Image();
 		//base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
 
-$.getJSON( "js/random.json", function( data ) {
+$.getJSON( "js/random1000.json", function( data ) {
 		ctx.beginPath();
 		ctx.moveTo(p1.x,p1.y);
 		ctx.lineTo(p2.x,p2.y);
@@ -115,28 +115,30 @@ $.getJSON( "js/random.json", function( data ) {
 		redraw();
 		var skip = [];
 		
+		
 		for (var i = 0; i < circ.length; i++) {
-			if(!include(skip, i)){
-				var radius = 2;
-				for(var j = 0; j < circ.length; j++){
-					if(j != i){
-					    // Jämföra points istället för position?
-						if(Math.abs(circ[i].position.x - circ[j].position.x) < 1 //Testar med 1, blir mer "svansigt".
-							&& Math.abs(circ[i].position.y - circ[j].position.y) < 1){
-							skip.push(j);
-							if (radius <= 30) {
-								radius = radius + 0.1;
-							} else {break;}
+			if(data.ble[i].startgroup <= startGroup)
+				if(!include(skip, i)){
+					var radius = 2;
+					for(var j = 0; j < circ.length; j++){
+						if(j != i){
+						    // Jämföra points istället för position?
+							if(Math.abs(circ[i].position.x - circ[j].position.x) < 1 //Testar med 1, blir mer "svansigt".
+								&& Math.abs(circ[i].position.y - circ[j].position.y) < 1){
+								skip.push(j);
+								if (radius <= 30) {
+									radius = radius + 0.1;
+								} else {break;}
+							}
 						}
 					}
+					circ[i].move(1);
+					//if(companiesActive[data.ble[i].company]) {
+						drawObject(circ[i], data.ble[i].company, radius);
+					//}
+					radius = 10;
 				}
-				circ[i].move(1);
-				//if(companiesActive[data.ble[i].company]) {
-					drawObject(circ[i], data.ble[i].company, radius);
-				//}
-				radius = 10;
-			}
-		} skip.splice(0, skip.length);
+			} skip.splice(0, skip.length);
 	}, updateFrequency);
 });	
 
@@ -214,6 +216,8 @@ function redraw() {
 	ctx.font="50px Helvetica";
 	
 	timeElapsed = timeElapsed + updateFrequency;
+	if (timeElapsed > startGroup*5000)
+		startGroup++;
 	seconds = seconds + updateFrequency /1000;
 	if (seconds >= 60) {
 		minutes++;
