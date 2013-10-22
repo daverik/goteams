@@ -117,7 +117,6 @@ $.getJSON( "js/random1000.json", function( data ) {
 		
 		
 		for (var i = 0; i < circ.length; i++) {
-
 			if(data.ble[i].startgroup <= startGroup)
 				if(!include(skip, i)){
 					var radius = 2;
@@ -131,6 +130,7 @@ $.getJSON( "js/random1000.json", function( data ) {
 									radius = radius + 0.1;
 								} else {break;}
 							}
+						}
 					}
 					circ[i].move(1);
 					//if(companiesActive[data.ble[i].company]) {
