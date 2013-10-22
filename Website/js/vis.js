@@ -123,8 +123,8 @@ $.getJSON( "js/random1000.json", function( data ) {
 					for(var j = 0; j < circ.length; j++){
 						if(j != i){
 						    // Jämföra points istället för position?
-							if(Math.abs(circ[i].position.x - circ[j].position.x) < 1 //Testar med 1, blir mer "svansigt".
-								&& Math.abs(circ[i].position.y - circ[j].position.y) < 1){
+							if(Math.abs(circ[i].position.x - circ[j].position.x) < 2 //Testar med 1, blir mer "svansigt".
+								&& Math.abs(circ[i].position.y - circ[j].position.y) < 2){
 								skip.push(j);
 								if (radius <= 30) {
 									radius = radius + 0.1;
