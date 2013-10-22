@@ -28,7 +28,7 @@ ctx.fillStyle = 'lightblue';
 
 ctx.beginPath();
 ctx.moveTo(cx,cy);
-ctx.arc(cx,cy,30,toRadians(180),toRadians(220));
+ctx.arc(cx,cy,30,toRadians(180),toRadians(200));
 ctx.lineTo(cx,cy);
 ctx.closePath();
 ctx.fill();
