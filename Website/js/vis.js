@@ -109,6 +109,10 @@ $.getJSON( "js/random1000.json", function( data ) {
 		for (var i = 0; i < data.ble.length; i++) {
 			circ[i] = new Circle(data.ble[i].time/10);
 		}
+		
+		for (var i = 0; i < 9; i++) {
+			companiesActive[i] = false;
+		}
 		//console.log(circ.length);
 		
 		setInterval(function() {
@@ -123,8 +127,8 @@ $.getJSON( "js/random1000.json", function( data ) {
 					for(var j = 0; j < circ.length; j++){
 						if(j != i){
 						    // Jämföra points istället för position?
-							if(Math.abs(circ[i].position.x - circ[j].position.x) < 2 //Testar med 1, blir mer "svansigt".
-								&& Math.abs(circ[i].position.y - circ[j].position.y) < 2){
+							if(Math.abs(circ[i].position.x - circ[j].position.x) < 5 //Testar med 1, blir mer "svansigt".
+								&& Math.abs(circ[i].position.y - circ[j].position.y) < 5){
 								skip.push(j);
 								if (radius <= 30) {
 									radius = radius + 0.1;
@@ -216,7 +220,7 @@ function redraw() {
 	ctx.font="50px Helvetica";
 	
 	timeElapsed = timeElapsed + updateFrequency;
-	if (timeElapsed > startGroup*5000)
+	if (timeElapsed > startGroup*10000)
 		startGroup++;
 	seconds = seconds + updateFrequency /1000;
 	if (seconds >= 60) {
@@ -229,15 +233,29 @@ function redraw() {
 }
 
 function drawObject(obj, col, rad) {
-	/*if(col == 0){
-		ctx.fillStyle = "#00ff00";
+	if(col == 0){
+		ctx.fillStyle = "#DB4545";
 	} else if (col == 1){
-		ctx.fillStyle = "#ffff00";
+		ctx.fillStyle = "#DBA045";
+	} else if (col == 1){
+		ctx.fillStyle = "#355F8F";
+	} else if (col == 1){
+		ctx.fillStyle = "#38AF38";
+	} else if (col == 1){
+		ctx.fillStyle = "#A45050";
+	} else if (col == 1){
+		ctx.fillStyle = "#A48350";
+	} else if (col == 1){
+		ctx.fillStyle = "#39506B";
+	} else if (col == 1){
+		ctx.fillStyle = "#408340";
+	} else if (col == 1){
+		ctx.fillStyle = "#11355D";							
 	} else {
-		ctx.fillStyle = "#0000ff";
+		ctx.fillStyle = "#11355D";
 	}
-	  */
-	ctx.fillStyle = "#ff0000";
+	  
+	//ctx.fillStyle = "#ff0000";
 	ctx.beginPath();
 	ctx.arc(obj.x(), obj.y(), rad, 0, Math.PI * 2, true);
 	ctx.closePath();
