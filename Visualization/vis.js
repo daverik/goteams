@@ -29,6 +29,10 @@ for(var i = 0; i < pointsData.length;i++) {
 
 var points = [];
 var totDist = 0;
+var fiKm = 0;
+var tenKm = 0;
+var fifKm = 0;
+var twKm = 0;
 
 
 for (var i = 0; i < pointsData.length - 1; i++) {
@@ -39,6 +43,11 @@ for (var i = 0; i < pointsData.length - 1; i++) {
 	ys = Math.pow(pointsData[i + 1].y - pointsData[i].y, 2);
 	totDist += Math.sqrt(xs + ys);
 }
+
+fiKm = 5 * totDist / 21;
+fiKm = 10 * totDist / 21;
+fiKm = 15 * totDist / 21;
+fiKm = 20 * totDist / 21;
 
 for (var i = 0; i < pointsData.length; i++) {
 	points.push(new Point(pointsData[i].x, pointsData[i].y));
