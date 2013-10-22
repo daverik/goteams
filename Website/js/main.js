@@ -1,7 +1,17 @@
 var loggedIn = false;
+var hidden = false;
 
 $(function() {
 	$('.map-start').load('pages/map.html', function() {
+		$('.map').click(function() {
+			if(!hidden) {
+				$('.stuffToHide').hide();
+				hidden = true;	
+			}else {
+				$('.stuffToHide').show();
+				hidden = false;
+			}
+		});
 	});
 });
 
