@@ -29,6 +29,10 @@ for(var i = 0; i < pointsData.length;i++) {
 
 var points = [];
 var totDist = 0;
+var fiKm = 0;
+var tenKm = 0;
+var fifKm = 0;
+var twKm = 0;
 
 
 for (var i = 0; i < pointsData.length - 1; i++) {
@@ -40,6 +44,11 @@ for (var i = 0; i < pointsData.length - 1; i++) {
 	totDist += Math.sqrt(xs + ys);
 }
 
+fiKm = 5 * totDist / 21;
+fiKm = 10 * totDist / 21;
+fiKm = 15 * totDist / 21;
+fiKm = 20 * totDist / 21;
+
 for (var i = 0; i < pointsData.length; i++) {
 	points.push(new Point(pointsData[i].x, pointsData[i].y));
 }
@@ -48,6 +57,12 @@ for (var i = 0; i < pointsData.length; i++) {
 base_image = new Image();
 		base_image.src = 'MapNoPath.png';
 	  	//base_image.onload = function(){
+
+var runners = [];
+
+for(var i = 0; i < 40; i++) {
+  runners.push({'circle':new Circle(6000+Math.round(Math.random()*5000)), 'color': '#'+Math.random().toString(16).substr(-6)});
+}
 
 $.getJSON( "random1000.json", function( data ) {
 		ctx.beginPath();
@@ -65,16 +80,17 @@ $.getJSON( "random1000.json", function( data ) {
 		setInterval(function() {
 		redraw();
 		var skip = [];
-		
+
 		for (var i = 0; i < circ.length; i++) {
 			if(!include(skip, i)){
-				var radius = 10;
+				var radius = 5;
 				for(var j = 0; j < circ.length; j++){
 					if(j != i){
 						if(Math.abs(circ[i].position.x - circ[j].position.x) < 30 
 							&& Math.abs(circ[i].position.y - circ[j].position.y) < 30){
+
 							skip.push(j);
-							if (radius <= 300) {
+							if (radius <= 30) {
 								radius = radius + 0.1;
 							} else {break;}
 						}
@@ -84,6 +100,7 @@ $.getJSON( "random1000.json", function( data ) {
 				//if(companiesActive[data.ble[i].company]) {
 					drawObject(circ[i], data.ble[i].company, radius);
 				//}
+
 				radius = 10;
 			}
 		} skip.splice(0, skip.length);
@@ -141,8 +158,8 @@ function Circle(endTime) {
 }
 
 base_image = new Image();
-		//base_image.src = 'MapNoPath.png';
-	  	//base_image.onload = function(){
+base_image.src = 'MapNoPath.png';
+//base_image.onload = function(){
 	    
 function include(list, elm) {
 	for(var i = 0; i < list.length; i++) {
@@ -168,9 +185,12 @@ function drawObject(obj, col, rad) {
 		ctx.fillStyle = "#00ff00";
 	} else if (col == 1){
 		ctx.fillStyle = "#ffff00";
-	} else {
+	} else if (col == 2){
 		ctx.fillStyle = "#0000ff";
+	} else {
+		ctx.fillStyle = col;
 	}
+
 	  */
 	ctx.fillStyle = "#3498DB";
 	
