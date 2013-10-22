@@ -8,10 +8,10 @@ $(function() {
 $(window).scroll(function() {
 	if ($(window).scrollTop() > 0) {
 		var ypos = $(window).scrollTop();
-		/*$('.count-down').css('top', 500 - ypos);
-		$('.league-section').css('top', 1200 - ypos);
-		$('.team-section').css('top', 1600 - ypos);
-		$('.compete-section').css('top', 2400 - ypos);
+		$('.count-down').css('top', 500 - ypos);
+		$('.spectate-section').css('top', 1200 - ypos);
+		$('.team-section').css('top', 1700 - ypos);
+		/*$('.compete-section').css('top', 2400 - ypos);
 		$('.teams-section').css('top', 2000 - ypos);
 		$('.arrow').css('top', 2000 - ypos);*/
 	}
@@ -45,7 +45,9 @@ $('.searchbox').keyup(function(e) {
 			var msg = $.parseJSON(data);
 			//console.log(msg.values);
 			
-			$('.dropdown-menu').append("<li class='search-breakpoint-teams'>Teams</li>");
+			if(msg.teams.length > 0) {
+			    $('.dropdown-menu').append("<li class='search-breakpoint-teams'>Teams</li>");
+			}
 			// Team results
 			for(var i = 0; i < msg.teams.length; i++) {
 				$('.dropdown-menu').append("<li class='search-item'><a class='team' href='#'>"+msg.teams[i]+"</a></li>");				
@@ -55,7 +57,9 @@ $('.searchbox').keyup(function(e) {
 				$('.stuffToHide').hide();
 			});
 			
-			$('.dropdown-menu').append("<li class='search-breakpoint-leagues'>Leagues</li>");
+			if(msg.leagues.length > 0) {
+			    $('.dropdown-menu').append("<li class='search-breakpoint-leagues'>Leagues</li>");
+			}
 			// League results
 			for(var i = 0; i < msg.leagues.length; i++) {
                 $('.dropdown-menu').append("<li class='search-item'><a class='league' href='#'>"+msg.leagues[i]+"</a></li>");                
@@ -64,7 +68,9 @@ $('.searchbox').keyup(function(e) {
                 loadLeaguePage($(this).find('a.league').html().trim());
             });
             
-            $('.dropdown-menu').append("<li class='search-breakpoint-runners'>Runners</li>");
+            if(msg.names.length > 0) {
+                $('.dropdown-menu').append("<li class='search-breakpoint-runners'>Runners</li>");
+            }
             // Runner name results
             for(var i = 0; i < msg.names.length; i++) {
                 $('.dropdown-menu').append("<li class='search-item'><a href='#'>"+msg.names[i]+"</a></li>");                
