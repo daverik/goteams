@@ -7,10 +7,10 @@ $(function() {
 			if(!hidden) {
 				$('.stuffToHide').hide();
 				hidden = true;	
-			}else {
+			}/*else {
 				$('.stuffToHide').show();
 				hidden = false;
-			}
+			}*/
 		});
 	});
 });
