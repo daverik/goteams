@@ -176,15 +176,15 @@ function run() {
 			for (var i = 0; i < circ.length; i++) {
 				if(data.ble[i].startgroup <= startGroup)
 					if(!include(skip, i)){
-						var radius = 2;
+						var radius = 4;
 						for(var j = 0; j < circ.length; j++){
 							if(j != i){
 							    // Jämföra points istället för position?
-								if(Math.abs(circ[i].position.x - circ[j].position.x) < 5 //Testar med 1, blir mer "svansigt".
-									&& Math.abs(circ[i].position.y - circ[j].position.y) < 5){
+								if(Math.abs(circ[i].position.x - circ[j].position.x) < 10 //Testar med 1, blir mer "svansigt".
+									&& Math.abs(circ[i].position.y - circ[j].position.y) < 10){
 									skip.push(j);
-									if (radius <= 30) {
-										radius = radius + 0.1;
+									if (radius <= 20) {
+										radius = radius + 0.2;
 									} else {break;}
 								}
 							}
@@ -284,7 +284,7 @@ function run() {
 			seconds = seconds - 60;
 		}
 		
-		ctx.fillText(minutes + "." + seconds.toFixed(2),10,80);
+		//ctx.fillText(minutes + "." + seconds.toFixed(2),10,80);
 	}
 	
 	function drawObject(obj, col, rad) {
@@ -292,19 +292,19 @@ function run() {
 			ctx.fillStyle = "#DB4545";
 		} else if (col == 1){
 			ctx.fillStyle = "#DBA045";
-		} else if (col == 1){
+		} else if (col == 2){
 			ctx.fillStyle = "#355F8F";
-		} else if (col == 1){
+		} else if (col == 3){
 			ctx.fillStyle = "#38AF38";
-		} else if (col == 1){
+		} else if (col == 4){
 			ctx.fillStyle = "#A45050";
-		} else if (col == 1){
+		} else if (col == 5){
 			ctx.fillStyle = "#A48350";
-		} else if (col == 1){
+		} else if (col == 6){
 			ctx.fillStyle = "#39506B";
-		} else if (col == 1){
+		} else if (col == 7){
 			ctx.fillStyle = "#408340";
-		} else if (col == 1){
+		} else if (col == 8){
 			ctx.fillStyle = "#11355D";							
 		} else {
 			ctx.fillStyle = "#11355D";
