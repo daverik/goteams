@@ -39,7 +39,7 @@ img.onload = function(){
 	for(var i = 0; i < pointsData.length;i++) {
 		pointsData[i].x = xc*pointsData[i].x;
 		pointsData[i].y = yc*pointsData[i].y + 30;
-		console.log(pointsData[i].x);
+		//console.log(pointsData[i].x);
 	}
 	run();
 };
@@ -62,22 +62,40 @@ function run() {
 		//console.log(totDist);
 		//2463*2290
 		//879*818
-		fiKm = 5 * totDist / 21;
-		tenKm = 10 * totDist / 21;
+		fiKm = 5 * totDist / 21; // i == 50 || 51 || 52
+		tenKm = 10 * totDist / 21; // i == 
 		fifKm = 15 * totDist / 21;
-		twlKm = 20 * totDist / 21;
-		if(totDist > 490 && totDist < 510){
-			console.log(i);
-			console.log("Hej1");
-		} else if(totDist > 995 && totDist < 1010){
-			console.log(i);
-			console.log("Hej2");
-		} else if(totDist > 1495 && totDist < 1510){
-			console.log(i);
-			console.log("Hej3");
-		} else if(totDist > 1985 && totDist < 2010){
-			console.log(i);
-			console.log("Hej4");
+		twKm = 20 * totDist / 21;
+		/*
+		console.log(fiKm + "he");
+		console.log(tenKm + "ha");
+		console.log(fifKm + "ho");
+		console.log(twKm + "hi");
+		
+		/*
+		 * 845.0010473983547he
+			1690.0020947967093ha
+			2535.003142195064ho
+			3380.0041895934187hi
+			
+			71fem
+			127tio
+			191femton
+			239tjugo
+		 */
+		
+		if(totDist > 840 && totDist < 855){
+			console.log(i + "fem");
+			
+		} else if(totDist > 1680 && totDist < 1710){
+			console.log(i + "tio");
+			
+		} else if(totDist > 2530 && totDist < 2540){
+			console.log(i + "femton");
+			
+		} else if(totDist > 3375 && totDist < 3390){
+			console.log(i + "tjugo");
+			
 		}
 	}
 		
@@ -174,7 +192,7 @@ function run() {
 					if (pointIndex < points.length - 1) {
 						next = points[pointIndex++];
 					} else {
-						calcSum();
+						//calcSum();
 						
 						//pointIndex = 0;
 						//next = points[pointIndex];
