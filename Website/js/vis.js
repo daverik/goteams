@@ -289,25 +289,25 @@ function run() {
 	
 	function drawObject(obj, col, rad) {
 		if(col == 0){
-			ctx.fillStyle = "#DB4545";
+			ctx.fillStyle = "#3498db5";
 		} else if (col == 1){
-			ctx.fillStyle = "#DBA045";
+			ctx.fillStyle = "#2ecc71";
 		} else if (col == 2){
-			ctx.fillStyle = "#355F8F";
+			ctx.fillStyle = "#9b59b6";
 		} else if (col == 3){
-			ctx.fillStyle = "#38AF38";
+			ctx.fillStyle = "#f1c40f";
 		} else if (col == 4){
-			ctx.fillStyle = "#A45050";
+			ctx.fillStyle = "#e67e22";
 		} else if (col == 5){
-			ctx.fillStyle = "#A48350";
+			ctx.fillStyle = "#e74c3c";
 		} else if (col == 6){
-			ctx.fillStyle = "#39506B";
+			ctx.fillStyle = "#2c3e50";
 		} else if (col == 7){
-			ctx.fillStyle = "#408340";
+			ctx.fillStyle = "#17a88c";
 		} else if (col == 8){
-			ctx.fillStyle = "#11355D";							
+			ctx.fillStyle = "#27ae60";							
 		} else {
-			ctx.fillStyle = "#11355D";
+			ctx.fillStyle = "#2980b9";
 		}
 		  
 		//ctx.fillStyle = "#ff0000";
