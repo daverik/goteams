@@ -150,10 +150,10 @@ function run() {
 	});
 	
 	$.getJSON( "js/random1000.json", function( data ) {
-			ctx.beginPath();
+			/*ctx.beginPath();
 			ctx.moveTo(p1.x,p1.y);
 			ctx.lineTo(p2.x,p2.y);
-			ctx.stroke();
+			ctx.stroke();*/
 			//ctx.canvas.width = document.getElementById('vismap').clientWidth;
 			//ctx.canvas.height = document.getElementById('vismap').clientHeight;
 			
