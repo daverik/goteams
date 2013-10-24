@@ -28,8 +28,8 @@ img.onload = function(){
 	ctx.canvas.height = img.clientHeight + 30;
 	xc = img.clientWidth/2463;
 	yc = img.clientHeight/2290;
-	console.log(xc);
-	console.log(yc);
+	//console.log(xc);
+	//console.log(yc);
 	
 	for(var i = 0; i < pointsData.length;i++) {
 		pointsData[i].x = xc*pointsData[i].x;
@@ -67,7 +67,7 @@ function run() {
 		console.log(fifKm + "ho");
 		console.log(twKm + "hi");
 		
-		/*
+		
 		 * 845.0010473983547he
 			1690.0020947967093ha
 			2535.003142195064ho
@@ -77,7 +77,7 @@ function run() {
 			127tio
 			191femton
 			239tjugo
-		 */
+		 
 		
 		if(totDist > 840 && totDist < 855){
 			console.log(i + "fem");
@@ -91,7 +91,7 @@ function run() {
 		} else if(totDist > 3375 && totDist < 3390){
 			console.log(i + "tjugo");
 			
-		}
+		}*/
 	}
 		
 	for (var i = 0; i < pointsData.length; i++) {
@@ -108,7 +108,7 @@ function run() {
 		{'name':'IxD','points':30},
 		{'name':'Saab','points':15}
 		]
-	}
+	};
 	
 	var myTeams2 = ['Volvo','Chalmers','IxD','Saab']; 		
 		  		
@@ -159,8 +159,8 @@ function run() {
 			
 			var t = 0;
 			
-			for (var i = 0; i < data.ble.length; i++) {
-				circ[i] = new Circle(data.ble[i].time/10);
+			for (var i = 0; i < data.ble.length/2; i++) {
+				circ[i] = new Circle(data.ble[i].time/2);
 			}
 			
 			for (var i = 0; i < 9; i++) {
@@ -176,14 +176,14 @@ function run() {
 			for (var i = 0; i < circ.length; i++) {
 				if(data.ble[i].startgroup <= startGroup)
 					if(!include(skip, i)){
-						var radius = 4;
+						var radius = 8;
 						for(var j = 0; j < circ.length; j++){
 							if(j != i){
 							    // Jämföra points istället för position?
-								if(Math.abs(circ[i].position.x - circ[j].position.x) < 10 //Testar med 1, blir mer "svansigt".
-									&& Math.abs(circ[i].position.y - circ[j].position.y) < 10){
+								if(Math.abs(circ[i].position.x - circ[j].position.x) < 20 //Testar med 1, blir mer "svansigt".
+									&& Math.abs(circ[i].position.y - circ[j].position.y) < 20){
 									skip.push(j);
-									if (radius <= 20) {
+									if (radius <= 30) {
 										radius = radius + 0.2;
 									} else {break;}
 								}
@@ -193,7 +193,6 @@ function run() {
 						if(companiesActive[data.ble[i].company]) {
 							drawObject(circ[i], data.ble[i].company, radius);
 						}
-						radius = 10;
 					}
 				} skip.splice(0, skip.length);
 		}, updateFrequency);
@@ -236,10 +235,8 @@ function run() {
 					if (pointIndex < points.length - 1) {
 						next = points[pointIndex++];
 					} else {
-						//calcSum();
-						
-						//pointIndex = 0;
-						//next = points[pointIndex];
+						pointIndex = 0;
+						next = points[pointIndex];
 					}
 				}
 				var xs = Math.pow(next.x - start.x, 2);
@@ -288,6 +285,8 @@ function run() {
 	}
 	
 	function drawObject(obj, col, rad) {
+		
+		/*
 		if(col == 0){
 			ctx.fillStyle = "#3498db5";
 		} else if (col == 1){
@@ -309,7 +308,8 @@ function run() {
 		} else {
 			ctx.fillStyle = "#2980b9";
 		}
-		  
+		  */
+		ctx.fillStyle = "#3498db";
 		//ctx.fillStyle = "#ff0000";
 		ctx.beginPath();
 		ctx.arc(obj.x(), obj.y(), rad, 0, Math.PI * 2, true);
