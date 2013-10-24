@@ -159,7 +159,7 @@ function run() {
 			
 			var t = 0;
 			
-			for (var i = 0; i < data.ble.length/2; i++) {
+			for (var i = 0; i < data.ble.length; i++) {
 				circ[i] = new Circle(data.ble[i].time/2);
 			}
 			
